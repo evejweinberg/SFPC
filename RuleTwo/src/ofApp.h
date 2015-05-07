@@ -35,7 +35,6 @@ class ofApp : public ofBaseApp{
     ofImage Art[7];
      string str = "Art";
     ofImage myImg;
-//    ofImage Art1, Art2, Art3, Art4, Art5, Art6, Art7;
     float opactity[7];
   
     

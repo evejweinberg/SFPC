@@ -2,60 +2,39 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    salmon.setHsb(0,140,224);
-    tan.setHsb(30,58,234); // (x/360*255, x/100*255, x/100*255)
-    brown.setHsb(30,96,63);
-    yellow.setHsb(34,150,234);
-    green.setHsb(49,127,219);
-    royal.setHsb(157,127,181);
-    blue.setHsb(133,138,214);
-    pink.setHsb(4,43,237);
+    
+    colors[0].set(224,103,99); //coral
+    colors[1].set(140,207,160); //green
+    colors[2].set(98,196,215); //teal
+    colors[3].set(243,167,153); //salmon
+    colors[4].set(236,214,95); //yellow
+    colors[5].set(150,107,138); //purple
+    colors[6].set(91,116,183); //drkblue
+    
     
     IntroBlack.loadFont("Intro Black.otf", 52); //font size
     
-    string name, panel;
+    string name;
+    ofxPanel WAVE;
+    
+   
     
     for (int i = 0; i < 8; i++){
-    
-        name = "panel" + ofToString(i);
-        cout << name << endl;
-        ofxPanel name;
-        name.setup("WAVE" + ofToString(i), "settings.xml", ofGetWidth()-230, 50);
-        name.add(peaks[i].set("pPeaks",50, 20, 100));
-      
+        name = "WAVE_" + ofToString(i);
+        panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-230, 150*i);
+        panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
+        panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
+        panels[i].add(radius[i].set("Radius", 150.0, 20, 300));
+        panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
+        panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
+        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
         
+//        if (panels[i].y > 600){
+//               panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-430, 150*i);
+//        }
     }
     
-    for (int i = 0; i < 8; i++){
-        
-//        panel[i].setup("WAVE", "settings.xml", ofGetWidth()-230, 50);
-//        panel[i].add(peaks[i].set("pPeaks",50, 20, 100));
-//        panel(i).add(amplitude[(i).set("Amplitude",0.01f, 0.01f, 0.2f));
-//        panel(i).add(radius(i).set("Radius", 150.0, 20, 300));
-//        panel(i).add(noiseModFactor(i).set("Noise", 0.0, 0.0, 5.0));
-//        panel(i).add(velocity(i).set("Velocity", 0.1f, 0.01f, 1.0f));
-//        panel(i).add(LineWeight(i).set("Line Weight", 2, 2, 50));
-    }
-
     
- //--mannual----------
-//    panelA.setup("WAVE ONE", "settings.xml", ofGetWidth()-230, 50);
-//    panelA.add(peaksA.set("pPeaks",50, 20, 100));
-//    panelA.add(amplitudeA.set("Amplitude",0.01f, 0.01f, 0.2f));
-//    panelA.add(radiusA.set("Radius", 150.0, 20, 300));
-//    panelA.add(noiseModFactorA.set("Noise", 0.0, 0.0, 5.0));
-//    panelA.add(velocityA.set("Velocity", 0.1f, 0.01f, 1.0f));
-//    panelA.add(LineWeightA.set("Line Weight", 2, 2, 50));
-//    
-//    panelB.setup("WAVE TWO", "settings.xml", ofGetWidth()-230, 200);
-//    panelB.add(peaksB.set("peaksB",50, 20, 100));
-//    panelB.add(amplitudeB.set("amplitudeB",0.01f, 0.01f, 0.2f));
-//    panelB.add(radiusB.set("RadiusB", 150.0, 20, 300));
-//    panelB.add(noiseModFactorB.set("NoiseB", 0.0, 0.0, 5.0));
-//    panelB.add(velocityB.set("velocityB", 0.15f, 0.01f, 1.0f));
-//    panelB.add(LineWeightB.set("Line Weight", 2, 2, 50));
-//    
-//    
     ofBackground(0);
     
 }
@@ -85,10 +64,15 @@ void ofApp::draw(){
     ofNoFill();
     
     float resolution = 1000;
-    
+    ofPushMatrix();
+     ofTranslate(500,450);
     
     for (int j = 0; j < 8; j++) {
         ofSetLineWidth(6);
+        
+        ofBeginShape();
+         ofSetColor(colors[j]);
+       
         for(int i=0; i<=resolution; i++) {
             
             float t = i/resolution;
@@ -96,87 +80,27 @@ void ofApp::draw(){
             float xraw = sin(t*TWO_PI);
             float yraw = cos(t*TWO_PI);
             
-            float displaceNoiseMod = ofNoise(xraw+ofGetElapsedTimef(), yraw+ofGetElapsedTimef()) * radius[i];
-            displaceNoiseMod*=noiseModFactor[i].get();
+            float displaceNoiseMod = ofNoise(xraw+ofGetElapsedTimef(), yraw+ofGetElapsedTimef()) * radius[j];
+            displaceNoiseMod*=noiseModFactor[j].get();
             
-            float wave = (displaceNoiseMod+radius[i]) * amplitude[i] * sin(t*TWO_PI*peaks[i] + ofGetFrameNum()*velocity[i])  ;
+            float wave = (displaceNoiseMod+radius[j]) * amplitude[j] * sin(t*TWO_PI*peaks[j] + ofGetFrameNum()*velocity[j])  ;
             
-            float x = (radius[i]+wave) * xraw;
-            float y = (radius[i]+wave) * yraw;
+            float x = (radius[j]+wave) * xraw;
+            float y = (radius[j]+wave) * yraw;
             
             ofCurveVertex(x, y);
             
         }
+         ofEndShape();
     }
     
+        ofPopMatrix();
 
         for (int i = 0; i < 8; i++){
-            panel[i].draw();
+            panels[i].draw();
         }
         
-        
 
-        
-                               
-    //-----manually--make two circles----------------
-    
-    //    ofPushMatrix();
-    //    ofBeginShape();
-    //    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
-    //
-//    ofSetColor(salmon);
-//    ofSetLineWidth(LineWeightA);
-//    for(int i=0; i<=resolution; i++) {
-//        
-//        float t = i/resolution;
-//        
-//        float xraw = sin(t*TWO_PI);
-//        float yraw = cos(t*TWO_PI);
-//        
-//        float displaceNoiseMod = ofNoise(xraw+ofGetElapsedTimef(), yraw+ofGetElapsedTimef()) * radiusA;
-//        displaceNoiseMod*=noiseModFactorA.get();
-//        
-//        float wave = (displaceNoiseMod+radiusA) * amplitudeA * sin(t*TWO_PI*peaksA + ofGetFrameNum()*velocityA)  ;
-//        
-//        float x = (radiusA+wave) * xraw;
-//        float y = (radiusA+wave) * yraw;
-//        
-//        ofCurveVertex(x, y);
-//        
-//    }
-//    
-//    ofEndShape(true);
-//    
-//    
-//    ofBeginShape();
-//    ofSetColor(pink);
-//     ofSetLineWidth(LineWeightB);
-//    for(int i=0; i<=resolution; i++) {
-//        
-//        float t = i/resolution;
-//        
-//        float xraw = sin(t*TWO_PI);
-//        float yraw = cos(t*TWO_PI);
-//        
-//        float displaceNoiseMod = ofNoise(xraw+ofGetElapsedTimef(), yraw+ofGetElapsedTimef()) * radiusB;
-//        displaceNoiseMod*=noiseModFactorB.get();
-//        
-//        float wave = (displaceNoiseMod+radiusB) * amplitudeB * sin(t*TWO_PI*peaksB + ofGetFrameNum()*velocityB)  ;
-//        
-//        float x = (radiusB+wave) * xraw;
-//        float y = (radiusB+wave) * yraw;
-//        
-//        ofCurveVertex(x, y);
-//        
-//    }
-    
-//    ofEndShape(true);
-//   ofPopMatrix();
-    
-        
-//    panelA.draw();
-//    panelB.draw();
-    
     
 }
 
