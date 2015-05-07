@@ -45,5 +45,6 @@ class ofApp : public ofBaseApp{
     ofImage studentA, studentB, studentC;
     ofImage BGtemp;
     ofImage TaeyoonTeaching;
+   
 		
 };

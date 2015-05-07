@@ -36,6 +36,7 @@ class ofApp : public ofBaseApp{
     ofColor royal;
     ofColor blue;
     ofColor pink;
+    ofImage Nav;
     
     float intalpha, letterheight;
 		

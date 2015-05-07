@@ -36,8 +36,10 @@ public:
     ofTrueTypeFont 	IntroBlackLrg;
     char ThereisOnly[255];
     char WORK [255];
+    ofImage Break;
     
     ofColor colors[7];
+    ofImage Nav;
     
 
     

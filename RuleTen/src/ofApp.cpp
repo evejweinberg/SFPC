@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+        Nav.loadImage("Nav.png");
+    
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
     colors[2].set(98,196,215); //teal
@@ -11,28 +13,46 @@ void ofApp::setup(){
     colors[5].set(150,107,138); //purple
     colors[6].set(91,116,183); //drkblue
     
-    
+    Break.loadImage("RuleTenBreak.png");
     IntroBlack.loadFont("Intro Black.otf", 52); //font size
     
     string name;
     ofxPanel WAVE;
     
-   
     
+    float x=ofGetWidth()-260;       // set X and Y outside of the for loop (see above)
+    float y = 150;
     for (int i = 0; i < 8; i++){
         name = "WAVE_" + ofToString(i);
-        panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-230, 150*i);
+   
+        panels[i].setup(name, "settings" + ofToString(i) + ".xml", x, y);
         panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
         panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
         panels[i].add(radius[i].set("Radius", 150.0, 20, 300));
         panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
         panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
         panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
-        
-//        if (panels[i].y > 600){
-//               panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-430, 150*i);
-//        }
+        y += 150;  //
+        if ( y > 600){
+            x=ofGetWidth()-560; //scoot the 2nd column to the left
+            y = 0;
+        }
     }
+    
+//    string name;
+//    ofxPanel WAVE;
+//    
+//    for (int i = 0; i < 8; i++){
+//        name = "WAVE_" + ofToString(i);
+//        panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-260, 150*i);
+//        panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
+//        panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
+//        panels[i].add(radius[i].set("Radius", 150.0, 20, 300));
+//        panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
+//        panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
+//        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
+//        
+//    }
     
     
     ofBackground(0);
@@ -60,12 +80,12 @@ void ofApp::draw(){
     }
     
     //------------------- start drawing ------------------------------------
-    
+  
     ofNoFill();
     
     float resolution = 1000;
     ofPushMatrix();
-     ofTranslate(500,450);
+     ofTranslate(570,450);
     
     for (int j = 0; j < 8; j++) {
         ofSetLineWidth(6);
@@ -99,10 +119,19 @@ void ofApp::draw(){
         for (int i = 0; i < 8; i++){
             panels[i].draw();
         }
-        
-
+    ofPushMatrix();
+    ofRotate(-9);
+    ofSetColor(73,66,54); //brown
+    Break.draw(10,90,700/1.2,181/1.2);
+    ofPopMatrix();
+    
+    ofSetColor(255);
+    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
     
 }
+
+
+
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
