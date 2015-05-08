@@ -32,11 +32,12 @@ public:
     
     
     
+    
     ofTrueTypeFont 	IntroBlack;
     ofTrueTypeFont 	IntroBlackLrg;
     char ThereisOnly[255];
     char WORK [255];
-    ofImage Break;
+    ofImage Break, YouCan;
     
     ofColor colors[7];
     ofImage Nav;

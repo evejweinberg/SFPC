@@ -14,45 +14,32 @@ void ofApp::setup(){
     colors[6].set(91,116,183); //drkblue
     
     Break.loadImage("RuleTenBreak.png");
+    YouCan.loadImage("YouCan.png");
     IntroBlack.loadFont("Intro Black.otf", 52); //font size
     
     string name;
     ofxPanel WAVE;
     
     
-    float x=ofGetWidth()-260;       // set X and Y outside of the for loop (see above)
-    float y = 150;
+    float x=ofGetWidth()-500;       // set X and Y outside of the for loop (see above)
+    float y = 140;
     for (int i = 0; i < 8; i++){
-        name = "WAVE_" + ofToString(i);
+        name = "WAVE " + ofToString(i);
    
         panels[i].setup(name, "settings" + ofToString(i) + ".xml", x, y);
-        panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
+        panels[i].add(radius[i].set("Radius", ofRandom(20,170), 20, 300));
         panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
-        panels[i].add(radius[i].set("Radius", 150.0, 20, 300));
+        panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
         panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
         panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
-        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
-        y += 150;  //
+//        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
+        y += 140;
         if ( y > 600){
-            x=ofGetWidth()-560; //scoot the 2nd column to the left
-            y = 0;
+            x=ofGetWidth()-280; //scoot the 2nd column to the left
+            y = 140;
         }
     }
     
-//    string name;
-//    ofxPanel WAVE;
-//    
-//    for (int i = 0; i < 8; i++){
-//        name = "WAVE_" + ofToString(i);
-//        panels[i].setup(name, "settings" + ofToString(i) + ".xml", ofGetWidth()-260, 150*i);
-//        panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
-//        panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
-//        panels[i].add(radius[i].set("Radius", 150.0, 20, 300));
-//        panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
-//        panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
-//        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
-//        
-//    }
     
     
     ofBackground(0);
@@ -82,16 +69,19 @@ void ofApp::draw(){
     //------------------- start drawing ------------------------------------
   
     ofNoFill();
-    
+    int width;
     float resolution = 1000;
     ofPushMatrix();
      ofTranslate(570,450);
+  
     
     for (int j = 0; j < 8; j++) {
-        ofSetLineWidth(6);
+    
         
         ofBeginShape();
          ofSetColor(colors[j]);
+        ofSetLineWidth(6);
+        
        
         for(int i=0; i<=resolution; i++) {
             
@@ -104,12 +94,13 @@ void ofApp::draw(){
             displaceNoiseMod*=noiseModFactor[j].get();
             
             float wave = (displaceNoiseMod+radius[j]) * amplitude[j] * sin(t*TWO_PI*peaks[j] + ofGetFrameNum()*velocity[j])  ;
-            
+    
             float x = (radius[j]+wave) * xraw;
             float y = (radius[j]+wave) * yraw;
             
             ofCurveVertex(x, y);
-            
+          
+        
         }
          ofEndShape();
     }
@@ -124,6 +115,7 @@ void ofApp::draw(){
     ofSetColor(73,66,54); //brown
     Break.draw(10,90,700/1.2,181/1.2);
     ofPopMatrix();
+    YouCan.draw(1000, 745, 289,103);
     
     ofSetColor(255);
     Nav.draw(0,0,ofGetWidth(),ofGetHeight());
