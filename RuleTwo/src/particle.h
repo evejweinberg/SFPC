@@ -35,7 +35,9 @@ class particle
 		bool  bFixed;
 	
 		float damping;
-    ofImage Head;
+    
+    ofImage Head, PartT, PartE, PartA, PartC, PartH, PartR;
+
 
     protected:
     private:
@@ -73,7 +75,8 @@ public:
     bool  bFixed;
     
     float damping;
-    ofImage Head;
+    ofImage Head, PartT, PartE, PartA, PartC, PartH, PartR;
+
     
 protected:
 private:

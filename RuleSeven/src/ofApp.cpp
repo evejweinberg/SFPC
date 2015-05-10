@@ -54,7 +54,7 @@ void ofApp::setup(){
     itwilllead.loadImage("itwilllead.png");
     itspeople.loadImage("itspeople.png");
     tosomething.loadImage("toSomething.png");
-    whoeventually.loadImage("whoeventually.png");
+    whoeventually.loadImage("whoeventually2.png");
     
  
 
@@ -99,6 +99,7 @@ void ofApp::draw(){
     allofthetime.draw(85,605,383/2,231/2);
     itspeople.draw(1035,345,530/2.2,392/2.2);
     tosomething.draw(410,365,368/2,270/2);
+    whoeventually.draw(715,570,530/2.05,392/2.05);
 
     ofSetColor(255);
     videoone.draw(350,110,350,200); //illustrator
@@ -108,6 +109,7 @@ void ofApp::draw(){
     videofive.draw(40,340,330,200);
     videosix.draw(1000,110,330,200); //taeyoon Goldberg
     
+//    cout >> pos[x] >> endl;
     
     ofSetColor(255);
     RuleSevenBG.draw(0,0,ofGetWidth(),ofGetHeight());

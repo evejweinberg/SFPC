@@ -11,6 +11,13 @@ void ofApp::setup(){
     colors[5].set(150,107,138); //purple
     colors[6].set(91,116,183); //drkblue
     
+    PartC.loadImage("PartC.png");
+    PartT.loadImage("PartT.png");
+    PartE.loadImage("PartE.png");
+    PartA.loadImage("PartA.png");
+    PartH.loadImage("PartH.png");
+    PartR.loadImage("PartR.png");
+    
    
     string name;
 
@@ -39,6 +46,7 @@ void ofApp::setup(){
     }
     
     particles[0].bFixed = true;
+   
 
     
     for (int i = 1; i < particles.size(); i++){
@@ -113,9 +121,10 @@ void ofApp::draw(){
                 bAnyNotInMe = true;
             }
             
-            if (bAnyNotInMe){
-                opactity[i] = 0.99 * opactity[i] + 0.01 * 0.0;
-            } else {
+//            if (bAnyNotInMe){
+//                opactity[i] = 0.99 * opactity[i] + 0.01 * 0.0;
+//            }
+            else {
                 opactity[i] = 0.99 * opactity[i] + 0.01 * 255.0;
             }
         }

@@ -7,6 +7,12 @@ particle::particle(){
 	damping = 0.1f; // what is damping
 	bFixed = false;
     Head.loadImage("Head.png");
+    PartC.loadImage("PartC.png");
+    PartT.loadImage("PartT.png");
+    PartE.loadImage("PartE.png");
+    PartA.loadImage("PartA.png");
+    PartH.loadImage("PartH.png");
+    PartR.loadImage("PartR.png");
 }
 
 //------------------------------------------------------------
@@ -15,6 +21,12 @@ particleMain::particleMain(){
     damping = 0.1f; // what is damping
     bFixed = false;
     Head.loadImage("Head.png");
+    PartC.loadImage("PartC.png");
+    PartT.loadImage("PartT.png");
+    PartE.loadImage("PartE.png");
+    PartA.loadImage("PartA.png");
+    PartH.loadImage("PartH.png");
+    PartR.loadImage("PartR.png");
 }
 
 ////------------------------------------------------------------
@@ -265,11 +277,12 @@ void particle::update(){
 
 //------------------------------------------------------------
 void particle::draw(){
-//    ofSetColor(73,66,54);
-//    ofCircle(pos.x, pos.y, 10);
+
+    
     ofSetColor(255);
-    Head.draw(pos.x-40, pos.y-30,95,120);
-    ofSetColor(73,66,54);
+    PartA.draw(pos.x,pos.y,50,50);
+   Head.draw(pos.x-40, pos.y-30,95,120);
+ofSetColor(73,66,54);
 }
 
 //------------------------------------------------------------

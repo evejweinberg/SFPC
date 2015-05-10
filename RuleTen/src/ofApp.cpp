@@ -27,12 +27,12 @@ void ofApp::setup(){
         name = "WAVE " + ofToString(i);
    
         panels[i].setup(name, "settings" + ofToString(i) + ".xml", x, y);
-        panels[i].add(radius[i].set("Radius", ofRandom(20,170), 20, 300));
+        panels[i].add(radius[i].set("Radius Size", ofRandom(20,200), 20, 300));
         panels[i].add(amplitude[i].set("Amplitude",0.01f, 0.01f, 0.2f));
         panels[i].add(peaks[i].set("Number of Peaks",50, 0, 100));
         panels[i].add(noiseModFactor[i].set("Noise", 0.0, 0.0, 5.0));
         panels[i].add(velocity[i].set("Velocity", 0.1f, 0.01f, 1.0f));
-//        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 50));
+        panels[i].add(LineWeight[i].set("Line Weight", 2, 2, 20));
         y += 140;
         if ( y > 600){
             x=ofGetWidth()-280; //scoot the 2nd column to the left
@@ -80,7 +80,7 @@ void ofApp::draw(){
         
         ofBeginShape();
          ofSetColor(colors[j]);
-        ofSetLineWidth(6);
+        ofSetLineWidth(LineWeight[j]);
         
        
         for(int i=0; i<=resolution; i++) {
