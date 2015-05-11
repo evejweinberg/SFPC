@@ -282,7 +282,11 @@ void particle::update(){
 
 //------------------------------------------------------------
 void particle::draw(){
-
+    ofSetColor(255);
+    for (int i = 0; i < 8; i++){
+        myparticle[i].draw(pos.x, pos.y,70,70);
+    }
+ 
 
 }
 
