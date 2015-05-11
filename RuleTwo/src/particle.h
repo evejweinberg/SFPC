@@ -36,7 +36,7 @@ class particle
 	
 		float damping;
     
-    ofImage myparticle; //attempting to setup the for loop to load particles
+    ofImage myTeachers; //attempting to setup the for loop to load particles
 
 
 
@@ -75,9 +75,7 @@ public:
     bool  bFixed;
     float damping;
     
-//    ofImage Head, PartT, PartE, PartA, PartC, PartH, PartR; //mannually loading the particles
-//    ofImage myparticle; //attempting to setup the for loop to load particles
-//    ofImage Head; // my main particle
+    ofImage Head; // my main particle
 
     
 protected:

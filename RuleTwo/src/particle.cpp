@@ -282,6 +282,10 @@ void particle::update(){
 
 //------------------------------------------------------------
 void particle::draw(){
+    ofSetColor(255);
+    myTeachers.draw(pos.x-50, pos.y-30,95,120);
+      ofSetColor(73,66,54);
+
 
 
 }
@@ -289,7 +293,7 @@ void particle::draw(){
 //------------------------------------------------------------
 void particleMain::draw(){
     ofSetColor(255);
-//  Head.draw(pos.x-40, pos.y-30,95,120);
+  Head.draw(pos.x-30, pos.y-30,95,120);
     ofSetColor(73,66,54);
     
   

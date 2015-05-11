@@ -11,7 +11,7 @@ void ofApp::setup(){
     colors[5].set(150,107,138); //purple
     colors[6].set(91,116,183); //drkblue
     
-//    Head.loadImage("Head.png");
+    Head.loadImage("Head.png");
     Ring.loadImage("Circle.png");
     PullEverything.loadImage("PullEverything.png");
     GeneralDuties.loadImage("GeneralDuties.png");
@@ -26,11 +26,7 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
     
-    for (int i = 1; i < 8; i++){
-        particles[i].myparticle.loadImage("picture_" + ofToString(i) + ".png");
-    }
     
-   
     string name;
     for (int i = 0; i < 8; i++){
         opactity[i] = 0;
@@ -42,10 +38,19 @@ void ofApp::setup(){
 
   
     
-    for (int i = 0; i < 8; i++){ //draw all 8 particles
+    for (int i = 0; i < 8; i++){ //draw all 8 particles, set their initial condition
         particle myParticle;
-        myParticle.setInitialCondition(ofRandom(500,550),ofRandom(500,550),0,0); //
+
+      if (i == 0){
+            myParticle.setInitialCondition(850,700,0,0);
+        }else{
+          myParticle.setInitialCondition(ofRandom(100,800) + 100*cos(i/8.0*TWO_PI),(ofRandom(100,800) + 100  *sin(i/8.0 *TWO_PI)),0,0);
+        }
         particles.push_back(myParticle);
+    }
+    
+    for (int i = 0; i < 8; i++){
+        particles[i].myTeachers.loadImage("picture_" + ofToString(i) + ".png");
     }
     
     particles[0].bFixed = true;
@@ -128,7 +133,7 @@ void ofApp::draw(){
 //                opactity[i] = 0.99 * opactity[i] + 0.01 * 0.0;
 //            }
             else {
-                opactity[i] = 0.99 * opactity[i] + 0.01 * 255.0;
+                opactity[i] = 0.995 * opactity[i] + 0.005 * 255.0;
             }
         }
     }
@@ -192,7 +197,8 @@ void ofApp::keyPressed(int key){
         case ' ':
             // reposition everything:
             for (int i = 0; i < particles.size(); i++){
-                particles[i].setInitialCondition(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()),0,0);
+               
+                 particles[i].setInitialCondition(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight()),0,0);
             
             }
             
