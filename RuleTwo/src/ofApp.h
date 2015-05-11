@@ -28,7 +28,7 @@ class ofApp : public ofBaseApp{
     ofImage Ring;
     ofImage GeneralDuties;
     ofImage PullEverything;
-    ofImage PartT, PartE, PartA, PartC, PartH, PartR;
+//    ofImage PartT, PartE, PartA, PartC, PartH, PartR;
   
 
     ofColor colors[7];

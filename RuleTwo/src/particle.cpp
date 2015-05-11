@@ -6,17 +6,14 @@ particle::particle(){
 	setInitialCondition(0,0,0,0);
 	damping = 0.1f; // what is damping
 	bFixed = false;
-    Head.loadImage("Head.png");
-    PartC.loadImage("PartC.png");
-    PartT.loadImage("PartT.png");
-    PartE.loadImage("PartE.png");
-    PartA.loadImage("PartA.png");
-    PartH.loadImage("PartH.png");
-    PartR.loadImage("PartR.png");
-    
-//    for (int i = 1; i < 7; i++){
-//        particles[i].myparticle.loadImage("picture_" + ofToString(i) + ".png");
-//    }
+//    Head.loadImage("Head.png");
+//    PartC.loadImage("PartC.png");
+//    PartT.loadImage("PartT.png");
+//    PartE.loadImage("PartE.png");
+//    PartA.loadImage("PartA.png");
+//    PartH.loadImage("PartH.png");
+//    PartR.loadImage("PartR.png");
+
     
   
 }
@@ -26,13 +23,13 @@ particleMain::particleMain(){
     setInitialCondition(0,0,0,0);
     damping = 0.1f; // what is damping
     bFixed = false;
-    Head.loadImage("Head.png");
-    PartC.loadImage("PartC.png");
-    PartT.loadImage("PartT.png");
-    PartE.loadImage("PartE.png");
-    PartA.loadImage("PartA.png");
-    PartH.loadImage("PartH.png");
-    PartR.loadImage("PartR.png");
+//    Head.loadImage("Head.png");
+//    PartC.loadImage("PartC.png");
+//    PartT.loadImage("PartT.png");
+//    PartE.loadImage("PartE.png");
+//    PartA.loadImage("PartA.png");
+//    PartH.loadImage("PartH.png");
+//    PartR.loadImage("PartR.png");
     
   
 }
@@ -286,17 +283,13 @@ void particle::update(){
 //------------------------------------------------------------
 void particle::draw(){
 
-    
-    ofSetColor(255);
-    PartA.draw(pos.x,pos.y,50,50);
-   Head.draw(pos.x-40, pos.y-30,95,120);
-ofSetColor(73,66,54);
+
 }
 
 //------------------------------------------------------------
 void particleMain::draw(){
     ofSetColor(255);
-    Head.draw(pos.x-40, pos.y-30,95,120);
+//  Head.draw(pos.x-40, pos.y-30,95,120);
     ofSetColor(73,66,54);
     
   
