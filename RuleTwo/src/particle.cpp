@@ -6,13 +6,7 @@ particle::particle(){
 	setInitialCondition(0,0,0,0);
 	damping = 0.1f; // what is damping
 	bFixed = false;
-//    Head.loadImage("Head.png");
-//    PartC.loadImage("PartC.png");
-//    PartT.loadImage("PartT.png");
-//    PartE.loadImage("PartE.png");
-//    PartA.loadImage("PartA.png");
-//    PartH.loadImage("PartH.png");
-//    PartR.loadImage("PartR.png");
+
 
     
   
@@ -23,24 +17,12 @@ particleMain::particleMain(){
     setInitialCondition(0,0,0,0);
     damping = 0.1f; // what is damping
     bFixed = false;
-//    Head.loadImage("Head.png");
-//    PartC.loadImage("PartC.png");
-//    PartT.loadImage("PartT.png");
-//    PartE.loadImage("PartE.png");
-//    PartA.loadImage("PartA.png");
-//    PartH.loadImage("PartH.png");
-//    PartR.loadImage("PartR.png");
+
     
   
 }
 
-////------------------------------------------------------------
-//particle::particleMain(){
-//    setInitialCondition(0,0,0,0);
-//    damping = 0.1f; // what is damping
-//    bFixed = false;
-//
-//}
+
 
 //------------------------------------------------------------
 void particle::resetForce(){
@@ -283,9 +265,9 @@ void particle::update(){
 //------------------------------------------------------------
 void particle::draw(){
     ofSetColor(255);
+
     myTeachers.draw(pos.x-50, pos.y-30,95,120);
       ofSetColor(73,66,54);
-
 
 
 }
