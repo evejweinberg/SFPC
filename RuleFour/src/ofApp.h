@@ -50,6 +50,10 @@ class ofApp : public ofBaseApp{
     ofColor MedAqua = ofColor :: mediumAquaMarine;
     ofColor Salmon = ofColor :: salmon;
     ofColor Gold = ofColor :: gold;
+    
+    ofColor colors[9];
+    
+    ofImage LT1, LT2, LT3;
    
 		
 };

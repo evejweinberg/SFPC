@@ -13,6 +13,12 @@ particle::particle(){
     PartA.loadImage("PartA.png");
     PartH.loadImage("PartH.png");
     PartR.loadImage("PartR.png");
+    
+//    for (int i = 1; i < 7; i++){
+//        particles[i].myparticle.loadImage("picture_" + ofToString(i) + ".png");
+//    }
+    
+  
 }
 
 //------------------------------------------------------------
@@ -27,6 +33,8 @@ particleMain::particleMain(){
     PartA.loadImage("PartA.png");
     PartH.loadImage("PartH.png");
     PartR.loadImage("PartR.png");
+    
+  
 }
 
 ////------------------------------------------------------------
@@ -290,6 +298,8 @@ void particleMain::draw(){
     ofSetColor(255);
     Head.draw(pos.x-40, pos.y-30,95,120);
     ofSetColor(73,66,54);
+    
+  
 }
 
 

@@ -29,12 +29,13 @@ class ofApp : public ofBaseApp{
     ofImage GeneralDuties;
     ofImage PullEverything;
     ofImage PartT, PartE, PartA, PartC, PartH, PartR;
+  
 
     ofColor colors[7];
     ofPoint CirclePos[7];
     
     ofImage Art[7];
-     string str = "Art";
+    string str = "Art";
     ofImage myImg;
     float opactity[7];
   

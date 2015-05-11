@@ -88,19 +88,25 @@ void ofApp::setup(){
     an.loadImage("an.png");
     Experiment.loadImage("Experiment.png");
     
-    salmon.setHsb(0,140,224);
-    tan.setHsb(30,58,234); // (x/360*255, x/100*255, x/100*255)
-    brown.setHsb(30,96,63);
-    yellow.setHsb(34,150,234);
-    green.setHsb(49,127,219);
-    royal.setHsb(157,127,181);
-    blue.setHsb(133,138,214);
-    pink.setHsb(4,43,237);
+//    for (int i = 0; i < 2; i++){
+//        LT[i].loadimage("RuleFour_LikeThis"(i) + ".png");
+//    }
+    
+    LT1.loadImage("RuleFOur_LikeThis1.png");
+    
+    colors[0].set(224,103,99); //coral
+    colors[1].set(140,207,160); //green
+    colors[2].set(98,196,215); //teal
+    colors[3].set(243,167,153); //salmon
+    colors[4].set(236,214,95); //yellow
+    colors[5].set(150,107,138); //purple
+    colors[6].set(91,116,183); //drkblue
+    colors[7].set(148,114,101); // lightbrown
+    colors[8].set(200,221,109); //lime
     
     imggrad.allocate(800 ,800,OF_IMAGE_COLOR);
     drawGradient();
     
-    //    ofEnableAntiAliasing();
     ofSetLineWidth(2);
     last = ofGetElapsedTimeMillis();
     col.setHsb(0,255,255);
@@ -254,6 +260,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+    
 
 }
 

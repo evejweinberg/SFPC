@@ -69,13 +69,12 @@ public:
     void setInitialCondition(float px, float py, float vx, float vy);
     void update();
     void draw();
-    
     void bounceOffWalls();
-    
     bool  bFixed;
-    
     float damping;
-    ofImage Head, PartT, PartE, PartA, PartC, PartH, PartR;
+    
+    ofImage Head, PartT, PartE, PartA, PartC, PartH, PartR; //mannually loading the particles
+    ofImage myparticle; //attempting to setup the for loop to load particles
 
     
 protected:

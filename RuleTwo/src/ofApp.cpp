@@ -11,12 +11,21 @@ void ofApp::setup(){
     colors[5].set(150,107,138); //purple
     colors[6].set(91,116,183); //drkblue
     
+    Head.loadImage("Head.png");
+    Ring.loadImage("Circle.png");
+    PullEverything.loadImage("PullEverything.png");
+    GeneralDuties.loadImage("GeneralDuties.png");
+    
     PartC.loadImage("PartC.png");
     PartT.loadImage("PartT.png");
     PartE.loadImage("PartE.png");
     PartA.loadImage("PartA.png");
     PartH.loadImage("PartH.png");
     PartR.loadImage("PartR.png");
+    
+//    for (int i = 1; i < 7; i++){
+//        particles[i].loadImage("picture_" + ofToString(i) + ".png");
+//    }
     
    
     string name;
@@ -30,14 +39,11 @@ void ofApp::setup(){
         }
 
 
-    Head.loadImage("Head.png");
-    Ring.loadImage("Circle.png");
-    PullEverything.loadImage("PullEverything.png");
-    GeneralDuties.loadImage("GeneralDuties.png");
+    
     
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
-    
+  
     
     for (int i = 0; i < 8; i++){ //draw all 8 particles
         particle myParticle;
