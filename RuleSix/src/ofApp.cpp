@@ -111,6 +111,7 @@ void ofApp::draw(){
         ofLine(0, i, ofGetWidth(), i);
     }
 
+    
     int strWidth = (seussLines[lineCount].length()*25) ;
     // x and y for the drawing
     float x = (ofGetWidth()-strWidth)/2;

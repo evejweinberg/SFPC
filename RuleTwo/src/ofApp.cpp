@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+      Nav.loadImage("Nav.png");
+    
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
     colors[2].set(98,196,215); //teal
@@ -114,6 +116,8 @@ void ofApp::draw(){
     GeneralDuties.draw(450,390,435,53);
     PullEverything.draw(530,450,426,117);
     
+
+    
     
     
 //----------variables for circles------------------------------------------
@@ -186,6 +190,8 @@ void ofApp::draw(){
         springs[i].draw();
     }
     
+    ofSetColor(255);
+    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
     
 }
 

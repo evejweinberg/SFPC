@@ -33,6 +33,7 @@ class ofApp : public ofBaseApp{
 
     ofColor colors[7];
     ofPoint CirclePos[7];
+     ofImage Nav;
     
     ofImage Art[7];
     string str = "Art";

@@ -1,10 +1,9 @@
 #include "ofMain.h"
 #include "ofApp.h"
-#include "ofAppGlutWindow.h"
+
 
 //========================================================================
 int main( ){
-    ofAppGlutWindow window;
 	ofSetupOpenGL(1400,875,OF_WINDOW);			// <-------- setup the GL context
 
 	// this kicks off the running of my app
