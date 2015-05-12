@@ -24,11 +24,11 @@ public:
     ofPoint aStart;
     ofPoint bEnd;
     ofColor color;
-    ofImage cloud;
+    ofImage cloud, Mate;
     ofVideoPlayer CompyFlip;
 
     float pct;
-          ofBlendMode blendMode;
+    ofBlendMode blendMode;
 
 
 };

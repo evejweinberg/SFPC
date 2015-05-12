@@ -38,6 +38,6 @@ class ofApp : public ofBaseApp{
     ofColor pink;
     ofImage Nav;
     
-    float intalpha, letterheight;
+    float intalpha, letterheight, moveZach;
 		
 };

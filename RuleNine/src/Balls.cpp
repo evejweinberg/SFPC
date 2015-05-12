@@ -17,6 +17,7 @@ bEnd.set(ofGetWidth()/2, -1200);
 pct = 0;
     
     cloud.loadImage("cloud.png");
+    Mate.loadImage("Mate.png");
     
     ofSetFrameRate(24);
 
@@ -47,26 +48,35 @@ void Balls::update(){
 //-----------------------------------------------------------------------
 void Balls::draw(){
 
-    ofSetColor(255);
-//      ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+  
+//
     for (int k = 0; k < 10; k ++) {
     for (int j = 0; j < 700; j ++) {
 
+          ofSetColor(255);
+// ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
+        CompyFlip.draw((j*500)-900,500*k,300,304);
+//        ofDisableBlendMode();
+//        ofRectMode(OF_RECTMODE_CENTER);
+        ofPushMatrix();
         
- 
-        CompyFlip.draw((j*500)-1000,600*k,300,304);
+//        ofRotate(10);
+        Mate.draw((j*500)-750,600*k+300,245/1.7,450/1.7);
+        ofPopMatrix();
+        ofRectMode(OF_RECTMODE_CORNER);
 
         if (j % 2 == 0){
-
-
-        cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k,214,91);
+            ofSetColor(192,223,228);
+            cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k,214,91);
         } else {
-
-           cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k+300,214,91);
+            ofSetColor(192,223,228);
+            cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k+300,214,91);
+            ofSetColor(255);
+            
         }
     }
     }
-//       ofDisableBlendMode();
+//
  
 
     

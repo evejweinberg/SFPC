@@ -69,7 +69,7 @@ void ofApp::draw(){
 //----------draw letters-----------------
     
     letterheight = 380;
-    float intalphaMapped = ofMap(mouseX, 30, ofGetWidth()-400, 0, 255);
+    float intalphaMapped = ofMap(mouseX, 20, ofGetWidth()-400, 0, 255);
   
     ofSetColor(224,103,99,intalphaMapped);
     IntroBlack.drawString(letterT, 235,letterheight);
@@ -85,9 +85,16 @@ void ofApp::draw(){
     
     ofSetColor(brown);
     RuleOneeverything.draw(50,50,1328,754);
+
+    if (ofGetMousePressed() && mouseX>100 && mouseX<ofGetWidth()-305){
+        moveZach = mouseX;
+    }
+    
+    Zach.draw(moveZach-220,434,484,430);
+    
+ 
     
     
-    Zach.draw(mouseX,434,484,430);
     ofSetColor(255);
     Nav.draw(0,0,ofGetWidth(),ofGetHeight());
 
