@@ -1,6 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "BallDrop.h"
+
+#define ARTWORKTOTAL 8
 
 class ofApp : public ofBaseApp{
 
@@ -23,7 +26,7 @@ class ofApp : public ofBaseApp{
         void drawaPolkaDotO(float xPos, float yPos, float scale);
         void drawGradient();
     
-    ofImage Consider, Everything, tobe, an, Experiment;
+    ofImage Consider, Everything, tobe, an, Experiment, InstA;
     ofImage imggrad;
     ofColor col;
     ofColor color;
@@ -32,7 +35,7 @@ class ofApp : public ofBaseApp{
     float MyOutlineWidth = 4;
     unsigned long last;
     int counter;
-    int Myradius;
+    float Myradius;
     
     ofColor salmon;
     ofColor tan;
@@ -52,8 +55,10 @@ class ofApp : public ofBaseApp{
     ofColor Gold = ofColor :: gold;
     
     ofColor colors[9];
+    vector <BallDrop> allBallsDropping;
     
-    ofImage LT1, LT2, LT3;
+    ofImage LikeThis[ARTWORKTOTAL];
+    string str = "LikeThis";
    
 		
 };

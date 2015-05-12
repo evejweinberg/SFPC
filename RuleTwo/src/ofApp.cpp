@@ -18,12 +18,6 @@ void ofApp::setup(){
     PullEverything.loadImage("PullEverything.png");
     GeneralDuties.loadImage("GeneralDuties.png");
     
-//    PartC.loadImage("PartC.png");
-//    PartT.loadImage("PartT.png");
-//    PartE.loadImage("PartE.png");
-//    PartA.loadImage("PartA.png");
-//    PartH.loadImage("PartH.png");
-//    PartR.loadImage("PartR.png");
     
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
@@ -51,7 +45,7 @@ void ofApp::setup(){
         particles.push_back(myParticle);
     }
     
-    for (int i = 0; i < 8; i++){
+    for (int i = 0; i < 8; i++){  //load the particle pngs
         particles[i].myTeachers.loadImage("picture_" + ofToString(i) + ".png");
     }
     
@@ -168,7 +162,7 @@ void ofApp::draw(){
 
     ofSetRectMode(OF_RECTMODE_CENTER);
     
-    for (int i = 0; i < 7; i++){
+    for (int i = 0; i < 7; i++){ //draw the rings
         ofSetColor(colors[i]);
         Ring.draw(CirclePos[i].x,CirclePos[i].y,circleRad*2,circleRad*2);
         ofSetColor(colors[i].r, colors[i].g, colors[i].b, opactity[i]);

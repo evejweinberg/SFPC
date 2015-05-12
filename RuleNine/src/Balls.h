@@ -9,6 +9,7 @@
 #ifndef __ImageLoadingOne__Balls__
 #define __ImageLoadingOne__Balls__
 #include "ofMain.h"
+#include "ofxOpenCv.h"
 
 #include <stdio.h>
 
@@ -24,11 +25,16 @@ public:
     ofPoint aStart;
     ofPoint bEnd;
     ofColor color;
-    ofImage cloud, Mate;
-    ofVideoPlayer CompyFlip;
+   
 
     float pct;
     ofBlendMode blendMode;
+    
+    ofVideoGrabber		videoGrabber;
+    
+    ofxCvColorImage		colorImg;
+    
+    ofxCvGrayscaleImage 	grayImage;
 
 
 };

@@ -11,19 +11,17 @@
 
 //-----------------------------------------------------------------------
 void Balls::setup(){
+    
+    videoGrabber.initGrabber(320, 240);
+    
+    colorImg.allocate(videoGrabber.width, videoGrabber.height);
+    grayImage.allocate(videoGrabber.width, videoGrabber.height);
 
 aStart.set(ofGetWidth()/2,ofGetHeight()+500);
 bEnd.set(ofGetWidth()/2, -1200);
 pct = 0;
     
-    cloud.loadImage("cloud.png");
-    Mate.loadImage("Mate.png");
-    
-    ofSetFrameRate(24);
-
-    CompyFlip.loadMovie("CompyFlipBW.mov");
-    CompyFlip.setLoopState(OF_LOOP_NORMAL);
-    CompyFlip.play();
+ 
    
 }
 
@@ -32,12 +30,28 @@ pct = 0;
 //-----------------------------------------------------------------------
 void Balls::update(){
     
-    CompyFlip.update();
+   
   
-    pct += 0.001;   // ie: pct = pct + 0.005
+//    pct += 0.001;   // ie: pct = pct + 0.005
+//    
+//    if (pct > 1){
+//        pct = 0;
+//    }
     
-    if (pct > 1){
-        pct = 0;
+    videoGrabber.update();
+    
+    bool bNewFrame = false;
+    unsigned char * pixels;
+    
+    pixels = videoGrabber.getPixels();
+    bNewFrame = videoGrabber.isFrameNew();
+    
+    if (bNewFrame){
+        colorImg.setFromPixels(pixels, videoGrabber.width, videoGrabber.height);
+        
+        grayImage = colorImg;
+        grayImage.mirror(false, true);
+        
     }
 }
 
@@ -49,35 +63,22 @@ void Balls::update(){
 void Balls::draw(){
 
   
-//
-    for (int k = 0; k < 10; k ++) {
-    for (int j = 0; j < 700; j ++) {
 
-          ofSetColor(255);
-// ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
-        CompyFlip.draw((j*500)-900,500*k,300,304);
-//        ofDisableBlendMode();
-//        ofRectMode(OF_RECTMODE_CENTER);
-        ofPushMatrix();
-        
-//        ofRotate(10);
-        Mate.draw((j*500)-750,600*k+300,245/1.7,450/1.7);
-        ofPopMatrix();
-        ofRectMode(OF_RECTMODE_CORNER);
+    ofSetColor(245);
+    ofRect(ofGetWidth()/2,ofGetHeight()/2, 720+80, 720*.75+80);
+    
+    ofSetHexColor(0xffffff);
+    ofSetRectMode (OF_RECTMODE_CENTER);
+    grayImage.draw(ofGetWidth()/2,ofGetHeight()/2, 720, 720*.75);
+    
+    IplImage* eig = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
+    IplImage* temp = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
+    
+    cvReleaseImage( &eig );
+    cvReleaseImage( &temp );
+    
+    grayImage.draw(ofGetWidth()/2,ofGetHeight()/2, 640, 480);
 
-        if (j % 2 == 0){
-            ofSetColor(192,223,228);
-            cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k,214,91);
-        } else {
-            ofSetColor(192,223,228);
-            cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k+300,214,91);
-            ofSetColor(255);
-            
-        }
-    }
-    }
-//
- 
 
     
 

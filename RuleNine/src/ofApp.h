@@ -1,7 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
-#include "Balls.h"
+#include "ofxOpenCv.h"
+
+
 
 class ofApp : public ofBaseApp{
 
@@ -22,5 +24,12 @@ class ofApp : public ofBaseApp{
     
   
     ofImage Nav;
-     Balls Balls;
+    ofVideoGrabber		videoGrabber;
+    ofxCvColorImage		colorImg;
+    ofxCvGrayscaleImage 	grayImage;
+    ofColor myColor;
+    ofColor colorvar;
+    ofImage art;
+    ofImage cloud, Mate;
+    ofVideoPlayer CompyFlip;
 };
