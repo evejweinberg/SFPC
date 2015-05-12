@@ -18,7 +18,8 @@ void ofApp::setup(){
     tobe.loadImage("tobe.png");
     an.loadImage("an.png");
     Experiment.loadImage("Experiment.png");
-//    InstA.loadImage("instA.png");
+    InstA.loadImage("Inst2.png");
+    Nav.loadImage("Nav.png");
     
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
@@ -45,27 +46,16 @@ void ofApp::setup(){
         allBallsDropping[i].col = colors[(int)ofRandom(9)]; //grabbing the colors
         allBallsDropping[i].pos = ofPoint(ofRandom(0,ofGetWidth()),ofRandom(0, ofGetHeight())); //first time we call the balls
     }
-    
-    imggrad.allocate(800 ,800,OF_IMAGE_COLOR);
-    drawGradient();
-    
-    ofSetLineWidth(2);
-    last = ofGetElapsedTimeMillis();
-    col.setHsb(0,255,255);
-    yellow.setHex(0xF9FF4B);
+
     Myradius=1.0;
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    ofSetFrameRate(60);
+
     ofSetCircleResolution(50);
-    //    Tweenzor::update(ofGetElapsedTimeMillis());
-    
-    float skewFactor = .1;
-    Mousereact = ((ofGetWidth()/2) - mouseX) * skewFactor;
-    ofMap(mouseX, 0, ofGetWidth(), -5, 5);   // true = stay in range of 0-1 // float value, float inputMin, float inputMax, float outputMin, float outputMax)
+
     
     for (int i = 0; i < allBallsDropping.size(); i++) {
         allBallsDropping[i].update();
@@ -99,28 +89,7 @@ void ofApp::draw(){
     }
     
   
-    //-----------mesh------square--------slowly---------dropping-----------------------------------------------------
-    ofPushMatrix();
-    ofTranslate(600, -500+3*ofGetElapsedTimef());
-    ofScale(3,3);
-    
-    ofMesh tempMesh;
-    tempMesh.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-    
-    tempMesh.addVertex( ofPoint(100,100));
-    tempMesh.addColor(Gold);
-    
-    tempMesh.addVertex( ofPoint(200,100));
-    tempMesh.addColor(Gold);
-    
-    tempMesh.addVertex( ofPoint(100,200));
-    tempMesh.addColor(Aqua);
-    
-    tempMesh.addVertex( ofPoint(200,200));
-    tempMesh.addColor(Aqua);
-    
-    tempMesh.draw();
-    ofPopMatrix();
+
 
     //-----------------------bg ball drops----------------------------------------------------------------------
 
@@ -128,19 +97,17 @@ void ofApp::draw(){
         allBallsDropping[i].draw();
     }
     
-    
-
-
+   
     ofSetColor(ofRandom(0,100),ofRandom(0,140), ofRandom(0,190));
     Consider.draw(100,100,200,78);
-    Everything.draw(200, 300, 205,90);
-    tobe.draw(400,500,140,70);
-    an.draw(600,600,70,40);
-    Experiment.draw(800,700,210,80);
+    Everything.draw(200, 100, 205,90);
+    tobe.draw(400,100,140,70);
+    an.draw(600,100,70,40);
+    Experiment.draw(800,100,210,80);
+    ofSetColor(255);
+    InstA.draw(ofGetWidth()-500,ofGetHeight()-50);
     
-//    InstA.draw(700,500,270,46);
-    
-    
+    Nav.draw(0,0);
     
 }
 
@@ -153,7 +120,7 @@ void ofApp::drawGradient() {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    if(key==119) // 'w' key
+    if(key=='s') // 'w' key
     {
         
         Myradius -= 0.1; //Myradius is defined in header, instantiated in setup to 1
@@ -161,7 +128,7 @@ void ofApp::keyPressed(int key){
         
             }
     
-    if(key=='a')
+    if(key=='l')
     {
         
         Myradius += 0.1;

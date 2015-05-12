@@ -26,8 +26,7 @@ class ofApp : public ofBaseApp{
         void drawaPolkaDotO(float xPos, float yPos, float scale);
         void drawGradient();
     
-    ofImage Consider, Everything, tobe, an, Experiment, InstA;
-    ofImage imggrad;
+    ofImage Consider, Everything, tobe, an, Experiment, InstA, Nav;
     ofColor col;
     ofColor color;
     
