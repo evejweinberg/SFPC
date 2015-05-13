@@ -102,12 +102,8 @@ void ofApp::draw(){
     }
     
     ofSetColor(73,66,54); //brown
-//    ofSetColor(ofRandom(0,100),ofRandom(0,140), ofRandom(0,190));
     ConsiderFull.draw(320,100);
-//    Everything.draw(200, 100, 205,90);
-//    tobe.draw(400,100,140,70);
-//    an.draw(600,100,70,40);
-//    Experiment.draw(800,100,210,80);
+
 
     ofSetColor(255);
    
@@ -125,7 +121,7 @@ void ofApp::drawGradient() {
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     
-    if(key=='s') // 'w' key
+    if(key=='s') 
     {
         
         Myradius -= 0.1; //Myradius is defined in header, instantiated in setup to 1

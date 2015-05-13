@@ -15,12 +15,10 @@ class ofApp : public ofBaseApp{
 		void mouseDragged(int x, int y, int button);
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
+		
     
-    ofColor col;
-    ofColor color;
+   
+    ofColor colors[11];
     
     
     char eventString[255];  // when do i use these floats?
@@ -30,29 +28,20 @@ class ofApp : public ofBaseApp{
     unsigned long last;
     int counter;
     int Myradius;
-    int Mousereact;
+   
+  
+    string str = "icon";
+    ofImage icon[3];
+    ofPoint pos;
+   
     
-    void drawGradient();
+    ofImage Nav;
     
-    ofImage imggrad;
-    ofImage FU;
-    ofImage img;
-    ofTrueTypeFont 	NTSAkkhara;
+    ofTrueTypeFont IntroBlack;
+   
     
-    ofPtr<ofCairoRenderer> cairo;
-    ofPtr<ofBaseRenderer> opengl;
-    ofTexture tex;
     
-    ofColor myPurple = ofColor :: crimson;
-    ofColor Pink = ofColor :: hotPink;
-    ofColor Blue = ofColor :: skyBlue;
-    ofColor myOutlines = ofColor :: black;
-    ofColor green = ofColor :: aquamarine;
-    ofColor Aqua = ofColor :: aquamarine;
-    ofColor MedAqua = ofColor :: mediumAquaMarine;
-    ofColor Salmon = ofColor :: salmon;
-    ofColor Gold = ofColor :: gold;
-    ofColor yellow;
+  
     
 
 		
