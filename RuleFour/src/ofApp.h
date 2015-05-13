@@ -21,7 +21,6 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        void drawHI(float xPos, float yPos, float scale);
         void drawPinkPolkaCircle(float xPos, float yPos, float scale);
         void drawaPolkaDotO(float xPos, float yPos, float scale);
         void drawGradient();
@@ -30,8 +29,8 @@ class ofApp : public ofBaseApp{
     ofColor col;
     ofColor color;
     
-    int Mousereact;
-    float MyOutlineWidth = 4;
+ 
+ 
     unsigned long last;
     int counter;
     float Myradius;
@@ -44,9 +43,6 @@ class ofApp : public ofBaseApp{
     ofColor royal;
     ofColor blue;
     ofColor pink;
-    ofColor myOutlines = ofColor :: black;
-    ofColor myPurple = ofColor :: crimson;
-    ofColor Pink = ofColor :: hotPink;
     ofColor Blue = ofColor :: skyBlue;
     ofColor Aqua = ofColor :: aquamarine;
     ofColor MedAqua = ofColor :: mediumAquaMarine;

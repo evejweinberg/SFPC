@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "RuleOne.h"
+#include "RuleTwo.h"
 
 class ofApp : public ofBaseApp{
 
@@ -41,8 +43,9 @@ class ofApp : public ofBaseApp{
    
     
     
+    int rule;
   
-    
-
+    RuleOne r1;
+    RuleTwo r2;
 		
 };

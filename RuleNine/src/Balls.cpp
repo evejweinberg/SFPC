@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------
 void Balls::setup(){
     
-    videoGrabber.initGrabber(320, 240);
+    videoGrabber.initGrabber(300, 240);
     
     colorImg.allocate(videoGrabber.width, videoGrabber.height);
     grayImage.allocate(videoGrabber.width, videoGrabber.height);

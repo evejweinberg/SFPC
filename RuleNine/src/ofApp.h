@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxOpenCv.h"
 #include "ofxImageSequence.h"
+#include "Cloud.h"
 
 
 
@@ -30,7 +31,13 @@ class ofApp : public ofBaseApp{
     ofxCvGrayscaleImage 	grayImage;
     ofColor myColor;
     ofColor colorvar;
-    ofImage art;
-    ofImage cloud, Mate;
+    ofImage art, frame;
+    ofImage Mate;
+    ofImage type;
     ofVideoPlayer CompyFlip;
+    ofxImageSequence CompyImages;
+    float timer;
+    
+    float cloudx;
+    vector <Cloud> allClouds;
 };

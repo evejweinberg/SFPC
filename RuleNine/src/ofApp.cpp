@@ -4,11 +4,9 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-   
+    type.loadImage("Rule9_type.png");
     Nav.loadImage("Nav.png");
-
-    
-    cloud.loadImage("cloud.png");
+    frame.loadImage("frame.png");
     Mate.loadImage("Mate.png");
     CompyFlip.loadMovie("CompyFlipBW.mov");
     CompyFlip.setLoopState(OF_LOOP_NORMAL);
@@ -18,6 +16,16 @@ void ofApp::setup(){
     
     colorImg.allocate(videoGrabber.width, videoGrabber.height);
     grayImage.allocate(videoGrabber.width, videoGrabber.height);
+    CompyImages.loadSequence("CompyAlpha/CompyAlpha_", "png", 0, 33, 5);
+    CompyImages.preloadAllFrames();
+    
+    timer = 0;
+    
+
+    allClouds.resize(10);
+    for (int i = 0; i < allClouds.size(); i++) {
+        allClouds[i].pos = ofPoint(i*500,i*500); //first time we call the balls
+    }
 
 }
 
@@ -25,9 +33,12 @@ void ofApp::setup(){
 void ofApp::update(){
     
 
-     CompyFlip.update();
-    
-    ofBackground(100,100,100);
+    CompyFlip.update();
+    for (int i = 0; i < allClouds.size(); i++) {
+        allClouds[i].update();
+        
+    }
+
     
     videoGrabber.update();
     
@@ -64,32 +75,40 @@ void ofApp::draw(){
             ofLine(0, i, ofGetWidth(), i);
             }
     
-
+    ofSetColor(255);
+    frame.draw(400,220);
+    ofSetColor(73,66,54);
+    type.draw(500,105);
     
-    for (int k = 0; k < 10; k ++) {
-        for (int j = 0; j < 700; j ++) {
+    
+    
+    
+
+    for (int i = 0; i < allClouds.size(); i++) { //drawing all the balls, every frame
+        allClouds[i].draw();
+    }
+  
+    
+    
+    for (int k = 0; k < 2; k ++) {
+        for (int j = 0; j < 10; j ++) {
             
-            ofSetColor(255);
+           ofSetColor(255);
+           
+            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-700,700*k-80,300,304); //the frame and the current frame
             
-            CompyFlip.draw((j*500)-900,500*k,300,304);
+            Mate.draw(j*400,k*500+250,245/1.7,450/1.7);
             
-            Mate.draw((j*500)-750,600*k+300,245/1.7,450/1.7);
-            
-            if (j % 2 == 0){
-                ofSetColor(192,223,228);
-                cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k,214,91);
-            } else {
-                ofSetColor(192,223,228);
-                cloud.draw((70*ofGetElapsedTimef())+(j*500)-1000,600*k+300,214,91);
-                ofSetColor(255);
-                
             }
         }
-    }
     
+    
+
+
     ofSetHexColor(0xffffff);
-    
-    grayImage.draw(400, 200,400,400);
+    int videowidth = 630;
+    int videoheight = 342;
+    grayImage.draw(420, 240,videowidth,videoheight);
     
     IplImage* eig = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
     IplImage* temp = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
@@ -97,7 +116,7 @@ void ofApp::draw(){
     cvReleaseImage( &eig );
     cvReleaseImage( &temp );
     
-    grayImage.draw(400, 200,400,400);
+    grayImage.draw(420, 240,videowidth,videoheight);
     
     
     for (int i=400; i<grayImage.width; i++){

@@ -2,10 +2,7 @@
 
 //-----------------HI------------------------------------------------------
 
-void ofApp::drawHI(float xPos, float yPos, float scale){
-    
 
-}
 
 void ofApp::drawaPolkaDotO(float xPos, float yPos, float scale){
     }
@@ -83,14 +80,7 @@ void ofApp::draw(){
     }
     
     ofFill();
-    // triangle passing by
-//    ofSetColor(MedAqua);
-//    if (ofGetElapsedTimef() <= 10){
-//        ofTriangle(10*ofGetElapsedTimef(),100,10*ofGetElapsedTimef()+50,150,10*ofGetElapsedTimef(),200);
-//    }
     
-  
-
 
     //-----------------------bg ball drops----------------------------------------------------------------------
 
