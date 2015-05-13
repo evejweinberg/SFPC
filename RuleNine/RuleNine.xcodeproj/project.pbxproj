@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ECBE5541B02C6DB00A706E9 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ECBE5521B02C6DB00A706E9 /* ofxImageSequence.cpp */; };
 		0EDE00781B02545F00D333C4 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE00011B02545F00D333C4 /* ofxCvColorImage.cpp */; };
 		0EDE00791B02545F00D333C4 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE00041B02545F00D333C4 /* ofxCvContourFinder.cpp */; };
 		0EDE007A1B02545F00D333C4 /* ofxCvFloatImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EDE00061B02545F00D333C4 /* ofxCvFloatImage.cpp */; };
@@ -69,6 +70,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0ECBE5521B02C6DB00A706E9 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
+		0ECBE5531B02C6DB00A706E9 /* ofxImageSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxImageSequence.h; sourceTree = "<group>"; };
 		0EDE00001B02545F00D333C4 /* ofxCvBlob.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCvBlob.h; sourceTree = "<group>"; };
 		0EDE00011B02545F00D333C4 /* ofxCvColorImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxCvColorImage.cpp; sourceTree = "<group>"; };
 		0EDE00021B02545F00D333C4 /* ofxCvColorImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxCvColorImage.h; sourceTree = "<group>"; };
@@ -226,6 +229,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ECBE5501B02C6DB00A706E9 /* ofxImageSequence-master */ = {
+			isa = PBXGroup;
+			children = (
+				0ECBE5511B02C6DB00A706E9 /* src */,
+			);
+			name = "ofxImageSequence-master";
+			sourceTree = "<group>";
+		};
+		0ECBE5511B02C6DB00A706E9 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0ECBE5521B02C6DB00A706E9 /* ofxImageSequence.cpp */,
+				0ECBE5531B02C6DB00A706E9 /* ofxImageSequence.h */,
+			);
+			name = src;
+			path = "../../addons/ofxImageSequence-master/src";
+			sourceTree = "<group>";
+		};
 		0EDE00111B02545F00D333C4 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +528,7 @@
 			isa = PBXGroup;
 			children = (
 				0EDEFFFE1B02545F00D333C4 /* ofxOpenCv */,
+				0ECBE5501B02C6DB00A706E9 /* ofxImageSequence-master */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -682,6 +704,7 @@
 			files = (
 				0EDE00781B02545F00D333C4 /* ofxCvColorImage.cpp in Sources */,
 				0EDE007E1B02545F00D333C4 /* ofxCvShortImage.cpp in Sources */,
+				0ECBE5541B02C6DB00A706E9 /* ofxImageSequence.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				0EDE007D1B02545F00D333C4 /* ofxCvImage.cpp in Sources */,
 				0EDE007B1B02545F00D333C4 /* ofxCvGrayscaleImage.cpp in Sources */,

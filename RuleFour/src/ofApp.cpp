@@ -13,12 +13,12 @@ void ofApp::drawaPolkaDotO(float xPos, float yPos, float scale){
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    Consider.loadImage("Consider.png");
+    ConsiderFull.loadImage("ConsiderFull.png");
     Everything.loadImage("Everything.png");
     tobe.loadImage("tobe.png");
     an.loadImage("an.png");
     Experiment.loadImage("Experiment.png");
-    InstA.loadImage("Inst2.png");
+    InstA.loadImage("Inst3.png");
     Nav.loadImage("Nav.png");
     
     colors[0].set(224,103,99); //coral
@@ -83,29 +83,34 @@ void ofApp::draw(){
     }
     
     ofFill();
-    ofSetColor(MedAqua);
-    if (ofGetElapsedTimef() <= 10){
-        ofTriangle(10*ofGetElapsedTimef(),100,10*ofGetElapsedTimef()+50,150,10*ofGetElapsedTimef(),200);
-    }
+    // triangle passing by
+//    ofSetColor(MedAqua);
+//    if (ofGetElapsedTimef() <= 10){
+//        ofTriangle(10*ofGetElapsedTimef(),100,10*ofGetElapsedTimef()+50,150,10*ofGetElapsedTimef(),200);
+//    }
     
   
 
 
     //-----------------------bg ball drops----------------------------------------------------------------------
 
+     ofSetColor(255);
+     InstA.draw(545,317);
+    
     for (int i = 0; i < allBallsDropping.size(); i++) { //drawing all the balls, every frame
         allBallsDropping[i].draw();
     }
     
-   
-    ofSetColor(ofRandom(0,100),ofRandom(0,140), ofRandom(0,190));
-    Consider.draw(100,100,200,78);
-    Everything.draw(200, 100, 205,90);
-    tobe.draw(400,100,140,70);
-    an.draw(600,100,70,40);
-    Experiment.draw(800,100,210,80);
+    ofSetColor(73,66,54); //brown
+//    ofSetColor(ofRandom(0,100),ofRandom(0,140), ofRandom(0,190));
+    ConsiderFull.draw(320,100);
+//    Everything.draw(200, 100, 205,90);
+//    tobe.draw(400,100,140,70);
+//    an.draw(600,100,70,40);
+//    Experiment.draw(800,100,210,80);
+
     ofSetColor(255);
-    InstA.draw(ofGetWidth()-500,ofGetHeight()-50);
+   
     
     Nav.draw(0,0);
     

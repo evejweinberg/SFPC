@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "BallDrop.h"
 
-#define ARTWORKTOTAL 8
+#define ARTWORKTOTAL 10
 
 class ofApp : public ofBaseApp{
 
@@ -26,7 +26,7 @@ class ofApp : public ofBaseApp{
         void drawaPolkaDotO(float xPos, float yPos, float scale);
         void drawGradient();
     
-    ofImage Consider, Everything, tobe, an, Experiment, InstA, Nav;
+    ofImage Consider, ConsiderFull, Everything, tobe, an, Experiment, InstA, Nav;
     ofColor col;
     ofColor color;
     

@@ -1,4 +1,5 @@
 #include "ofApp.h"
+#include "ofxImageSequence.h"
 
 //--------------------------------------------------------------
 void ofApp::setup(){
