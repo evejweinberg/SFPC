@@ -69,7 +69,7 @@ void ofApp::draw(){
 //----------draw letters-----------------
     
     letterheight = 380;
-    float intalphaMapped = ofMap(mouseX, 20, ofGetWidth()-400, 0, 255);
+    float intalphaMapped = ofMap(moveZach, 20, ofGetWidth()-400, 0, 255);
   
     ofSetColor(224,103,99,intalphaMapped);
     IntroBlack.drawString(letterT, 235,letterheight);

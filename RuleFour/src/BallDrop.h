@@ -11,18 +11,18 @@ class BallDrop {
     
 public:
     
-    BallDrop() {
+    BallDrop() { //this is the setup basically
         hasbeenclicked = false;
         radius = 1;
     };
 
     void update() {
-        if (pos.y > ofGetHeight()+radius){
+        if (pos.y > ofGetHeight()+radius){ //if ball goes off screen, redraw a ball
             pos.y = -radius;
             hasbeenclicked = false;
         }
         
-        if(!hasbeenclicked) pos.y += 1;
+        if(!hasbeenclicked) pos.y += 1; //if it has not been clicked add 1 every time
         
     };
 

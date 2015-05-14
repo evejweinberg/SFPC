@@ -4,6 +4,7 @@
 #include "ofxOpenCv.h"
 #include "ofxImageSequence.h"
 #include "Cloud.h"
+//#include "Mate.h"
 
 
 
@@ -36,8 +37,10 @@ class ofApp : public ofBaseApp{
     ofImage type;
     ofVideoPlayer CompyFlip;
     ofxImageSequence CompyImages;
-    float timer;
+  
     
     float cloudx;
     vector <Cloud> allClouds;
+//    vector <Mate> allMates;
+  
 };

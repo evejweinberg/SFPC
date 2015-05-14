@@ -1,10 +1,6 @@
 #include "RuleOne.h"
 
 
-
-
-
-
 //--------------------------------------------------------------
 void RuleOne::setup(){
     
@@ -26,7 +22,6 @@ void RuleOne::setup(){
     royal.setHsb(157,127,181);
     blue.setHsb(133,138,214);
     pink.setHsb(4,43,237);
-    
     
     
 }
@@ -65,16 +60,23 @@ void RuleOne::draw(){
     float sinValue = sin(ofGetElapsedTimef()*2);
     ofColor c;
     c.set(ofColor::pink);
-    c.lerp( ofColor::blue,  ofMap(mouseX, 0, ofGetWidth(), 0, 1, true));
+    c.lerp( ofColor::blue,  ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 1, true));
     ofSetColor(c);
     ofCircle(610,490+sinValue*17, 5);
     ofCircle(640,490+sinValue*15, 5);
     ofCircle(670,490+sinValue*20, 5);
     
     //----------draw letters-----------------
+    float intalphaMapped = ofMap(moveZach, 100, ofGetWidth()-400, 0, 255);
+    
+    if (ofGetMousePressed() && ofGetMouseX() >100 && ofGetMouseX() <ofGetWidth()-305){
+        moveZach = ofGetMouseX();
+       
+    }
     
     letterheight = 380;
-    float intalphaMapped = ofMap(mouseX, 20, ofGetWidth()-400, 0, 255);
+    
+//     float intalphaMapped = ofMap(ofGetMouseX(), 20, ofGetWidth()-400, 0, 255);
     
     ofSetColor(224,103,99,intalphaMapped);
     IntroBlack.drawString(letterT, 235,letterheight);
@@ -91,9 +93,7 @@ void RuleOne::draw(){
     ofSetColor(brown);
     RuleOneeverything.draw(50,50,1328,754);
     
-    if (ofGetMousePressed() && mouseX>100 && mouseX<ofGetWidth()-305){
-        moveZach = mouseX;
-    }
+
     
     Zach.draw(moveZach-220,434,484,430);
     

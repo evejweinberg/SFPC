@@ -38,6 +38,8 @@ public:
         ofColor blue;
         ofColor pink;
         ofImage Nav;
+    
+        float xPos;
         
         float intalpha, letterheight, moveZach;
         

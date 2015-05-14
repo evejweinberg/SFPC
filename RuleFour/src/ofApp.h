@@ -21,9 +21,7 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-        void drawPinkPolkaCircle(float xPos, float yPos, float scale);
-        void drawaPolkaDotO(float xPos, float yPos, float scale);
-        void drawGradient();
+
     
     ofImage Consider, ConsiderFull, Everything, tobe, an, Experiment, InstA, Nav;
     ofColor col;

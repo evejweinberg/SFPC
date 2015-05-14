@@ -17,19 +17,27 @@ class Cloud {
     
 public:
     
-    void setup(){
+    Cloud () {
         cloud.loadImage("cloud.png");
+//        cloud.pos(100,100);
     };
     
     void update(){
         cloud.update();
+//        if (cloud.x > ofGetWidth()+214){ //trying to say that if it goes off screen, write a new one
+//            cloud.x = -214;
+//           
+//        }
     };
     
     void draw() {
         for (int i = 0; i <6; i++){
+            for (int j = 0; j <6; j++){
         ofSetColor(192,223,228); //light blue
-        cloud.draw(i*500,i*500,214,91);
+        cloud.draw(i*500+ofGetElapsedTimef()*50,j*500,214,91); //animate clouds on X here
         }
+        }
+     
         
     };
     

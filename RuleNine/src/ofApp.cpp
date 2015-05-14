@@ -18,15 +18,12 @@ void ofApp::setup(){
     grayImage.allocate(videoGrabber.width, videoGrabber.height);
     CompyImages.loadSequence("CompyAlpha/CompyAlpha_", "png", 0, 33, 5);
     CompyImages.preloadAllFrames();
-    
-    timer = 0;
-    
 
     allClouds.resize(10);
     for (int i = 0; i < allClouds.size(); i++) {
         allClouds[i].pos = ofPoint(i*500,i*500); //first time we call the balls
     }
-
+ 
 }
 
 //--------------------------------------------------------------
@@ -41,7 +38,6 @@ void ofApp::update(){
 
     
     videoGrabber.update();
-    
     bool bNewFrame = false;
     unsigned char * pixels;
     
@@ -63,7 +59,7 @@ void ofApp::draw(){
     
 
     
-    //    //BG------white paper with light blue gridded lines--------------------
+    ////BG------white paper with light blue gridded lines--------------------
         ofBackground(255);
         ofSetColor( ofColor::lightBlue);
         ofSetLineWidth(1);
@@ -76,28 +72,25 @@ void ofApp::draw(){
             }
     
     ofSetColor(255);
-    frame.draw(400,220);
+    frame.draw(380,220);
     ofSetColor(73,66,54);
     type.draw(500,105);
-    
-    
-    
-    
 
-    for (int i = 0; i < allClouds.size(); i++) { //drawing all the balls, every frame
-        allClouds[i].draw();
-    }
   
-    
+
     
     for (int k = 0; k < 2; k ++) {
-        for (int j = 0; j < 10; j ++) {
+        for (int j = 0; j < 5; j ++) {
             
            ofSetColor(255);
-           
-            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-700,700*k-80,300,304); //the frame and the current frame
-            
-            Mate.draw(j*400,k*500+250,245/1.7,450/1.7);
+            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-680,630*k-20,270,271); //the frame and the current frame
+            ofPushMatrix();
+            ofPushStyle();
+            ofRectMode(OF_RECTMODE_CENTER);
+            ofRotate(50*TWO_PI*ofGetElapsedTimef());
+            Mate.draw(j*400,k*400+250,245/2,450/2); //about to switch him into his own class
+            ofPopMatrix();
+            ofPopStyle();
             
             }
         }
@@ -105,10 +98,10 @@ void ofApp::draw(){
     
 
 
-    ofSetHexColor(0xffffff);
+    ofSetColor(200, 200, 200);
     int videowidth = 630;
     int videoheight = 342;
-    grayImage.draw(420, 240,videowidth,videoheight);
+    grayImage.draw(400, 240,videowidth,videoheight);
     
     IplImage* eig = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
     IplImage* temp = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
@@ -116,9 +109,9 @@ void ofApp::draw(){
     cvReleaseImage( &eig );
     cvReleaseImage( &temp );
     
-    grayImage.draw(420, 240,videowidth,videoheight);
+    grayImage.draw(400, 240,videowidth,videoheight);
     
-    
+    //id like to tint the video but not sure how
     for (int i=400; i<grayImage.width; i++){
         for (int j=200; j< grayImage.height; j++){
             float brightness = myColor.getBrightness(); // get the brightness of the color
@@ -144,7 +137,10 @@ void ofApp::draw(){
         }
     }
 
-
+    for (int i = 0; i < allClouds.size(); i++) { //drawing all the balls, every frame
+        allClouds[i].draw();
+    }
+    
 
     ofSetColor(255);
     Nav.draw(0,0,ofGetWidth(), ofGetHeight());

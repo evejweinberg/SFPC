@@ -1,11 +1,6 @@
 #include "ofApp.h"
 
-//-----------------HI------------------------------------------------------
 
-
-
-void ofApp::drawaPolkaDotO(float xPos, float yPos, float scale){
-    }
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -85,14 +80,14 @@ void ofApp::draw(){
     //-----------------------bg ball drops----------------------------------------------------------------------
 
      ofSetColor(255);
-     InstA.draw(545,317);
+     InstA.draw(545,347);
     
     for (int i = 0; i < allBallsDropping.size(); i++) { //drawing all the balls, every frame
         allBallsDropping[i].draw();
     }
     
     ofSetColor(73,66,54); //brown
-    ConsiderFull.draw(320,100);
+    ConsiderFull.draw(320,120);
 
 
     ofSetColor(255);
@@ -102,10 +97,6 @@ void ofApp::draw(){
     
 }
 
-
-void ofApp::drawGradient() {
-
-}
 
 
 //--------------------------------------------------------------

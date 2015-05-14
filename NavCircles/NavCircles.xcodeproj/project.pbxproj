@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EA5F3F41B042A630058697D /* particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5F3F01B042A630058697D /* particle.cpp */; };
+		0EA5F3F51B042A630058697D /* spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0EA5F3F21B042A630058697D /* spring.cpp */; };
 		0ED135381B03E643006626DA /* RuleOne.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ED135361B03E643006626DA /* RuleOne.cpp */; };
 		0ED1353B1B03E73C006626DA /* RuleTwo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0ED135391B03E73C006626DA /* RuleTwo.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
@@ -61,6 +63,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0EA5F3F01B042A630058697D /* particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = particle.cpp; sourceTree = "<group>"; };
+		0EA5F3F11B042A630058697D /* particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = particle.h; sourceTree = "<group>"; };
+		0EA5F3F21B042A630058697D /* spring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spring.cpp; sourceTree = "<group>"; };
+		0EA5F3F31B042A630058697D /* spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spring.h; sourceTree = "<group>"; };
 		0ED135361B03E643006626DA /* RuleOne.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RuleOne.cpp; sourceTree = "<group>"; };
 		0ED135371B03E643006626DA /* RuleOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RuleOne.h; sourceTree = "<group>"; };
 		0ED135391B03E73C006626DA /* RuleTwo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RuleTwo.cpp; sourceTree = "<group>"; };
@@ -193,6 +199,10 @@
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				0ED135391B03E73C006626DA /* RuleTwo.cpp */,
 				0ED1353A1B03E73C006626DA /* RuleTwo.h */,
+				0EA5F3F01B042A630058697D /* particle.cpp */,
+				0EA5F3F11B042A630058697D /* particle.h */,
+				0EA5F3F21B042A630058697D /* spring.cpp */,
+				0EA5F3F31B042A630058697D /* spring.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -293,8 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA5F3F51B042A630058697D /* spring.cpp in Sources */,
 				0ED135381B03E643006626DA /* RuleOne.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				0EA5F3F41B042A630058697D /* particle.cpp in Sources */,
 				0ED1353B1B03E73C006626DA /* RuleTwo.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 			);

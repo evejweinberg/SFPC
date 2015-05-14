@@ -15,6 +15,8 @@ void ofApp::setup(){
     colors[9].set(224,103,99); //pinkagain
     colors[10].set(85,85,140); //reallydarkblue
     
+    float xPos = mouseX;
+    
     
     IntroBlack.loadFont("Intro Black.otf", 15);
     
@@ -31,15 +33,16 @@ void ofApp::setup(){
     
     r1.setup();
     r2.setup();
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    if (rule == 0) {
+    if (rule == 1) {
         r1.update();
     }
-    else if (rule == 1) {
+    else if (rule == 2) {
         r2.update();
     }
 }
@@ -94,10 +97,10 @@ void ofApp::draw(){
     
     
     
-    if (rule == 0) {
+    if (rule == 1) {
         r1.draw();
     }
-    else if (rule == 1) {
+    else if (rule == 2) {
         r2.draw();
     }
     
@@ -106,8 +109,8 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == '1') rule = 0;
-    if (key == '2') rule = 1;
+    if (key == '1') rule = 1;
+    if (key == '2') rule = 2;
 }
 
 //--------------------------------------------------------------
