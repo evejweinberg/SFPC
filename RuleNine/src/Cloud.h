@@ -24,7 +24,7 @@ public:
     void update(){
         cloud.update();
         pos.x +=1.5;
-        if (pos.x > ofGetWidth()+200){ //trying to say that if it goes off screen, write a new one
+        if (pos.x > ofGetWidth()+400){ //trying to say that if it goes off screen, write a new one
             pos.x = -200;
            
         }
@@ -32,7 +32,7 @@ public:
     
     void draw() {
         ofSetColor(192,223,228);
-        cloud.draw(pos); //allocate x and y for later use
+        cloud.draw(pos,190,68); //allocate x and y for later use
    };
     
     ofImage cloud; //allocate space for an image

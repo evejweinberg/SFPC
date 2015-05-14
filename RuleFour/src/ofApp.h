@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "BallDrop.h"
 
-#define ARTWORKTOTAL 10
+#define ARTWORKTOTAL 15
 
 class ofApp : public ofBaseApp{
 

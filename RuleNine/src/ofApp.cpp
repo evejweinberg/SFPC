@@ -19,11 +19,46 @@ void ofApp::setup(){
     CompyImages.loadSequence("CompyAlpha/CompyAlpha_", "png", 0, 33, 5);
     CompyImages.preloadAllFrames();
 
-    allClouds.resize(10);
-    for (int i = 0; i < allClouds.size(); i++) {
-        allClouds[i].pos = ofPoint(i*500,i*500); //first time we call the balls
+    //    allClouds.resize(4);
+    //    for (int i = 0; i < allClouds.size(); i++) {
+    //          allClouds[i].pos = ofPoint(i*220,i*290-70);
+    //            }
+    //    for (int j = 0; j < allClouds.size(); j++) {
+    //        allClouds[j+4].pos = ofPoint(j*220-400,j*290-270);
+    //    }
+
+//    for(int row=0; row<4; row++) {
+//        for(int col=0; col<4; col++) {
+//            Cloud cloud;  // create new instance of a cloud
+//            if (row %2==0){
+//                cloud.pos = ofVec2f((row+1)*600, (col+1)*400);
+//            } else {
+//                cloud.pos = ofVec2f((row+1)*600-300, (col+1)*400-200);
+//            }
+//            allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
+//        }
+//    }
+    
+    
+for(int row=0; row<5; row++) {
+    float offSet = (row % 2)*200;
+    for(int col=0; col<5; col++) {
+        Cloud cloud; // create new instance of a cloud
+        cloud.pos = ofVec2f((row+1)*420 +offSet, (col+1)*380); // set the new clouds starting position
+        allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
     }
- 
+}
+
+//    after this code you will have an allClouds vector with 25 clouds
+//
+//    in this code `Cloud` is the name of a class you can use it to create one or more instances of a ` Cloud`.
+
+//    `allClouds` is a vector that stores instances of `Cloud`.
+//
+//    `cloud` is an instance of `Cloud`
+//    we can add it to `allClouds`
+//    when we have added `Cloud`s to `allCloud` we can access them again with square brackets: `allCloud[0]`  will access the first instance of `Cloud` in the vector.
+
 }
 
 //--------------------------------------------------------------
@@ -33,7 +68,7 @@ void ofApp::update(){
     CompyFlip.update();
     for (int i = 0; i < allClouds.size(); i++) {
         allClouds[i].update();
-//        allClouds[i].pos.x +=2;
+
         
     }
 
@@ -73,24 +108,23 @@ void ofApp::draw(){
             }
     
     ofSetColor(255);
-    frame.draw(380,220);
+    frame.draw(340,220);
     ofSetColor(73,66,54);
-    type.draw(500,105);
+    type.draw(470,105);
 
-  
 
     
     for (int k = 0; k < 2; k ++) {
-        for (int j = 0; j < 5; j ++) {
+                  for (int j = 0; j < 3; j ++) {
             
            ofSetColor(255);
-            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-680,630*k-20,270,271); //the frame and the current frame
-           
+            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-660,610*k+10,240,240); //the frame and the current frame
+           CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*580)-50,410*k-130,240,240); //the frame and the current frame
             ofPushMatrix();
             ofPushStyle();
             ofRectMode(OF_RECTMODE_CENTER);
-            ofRotate(50*TWO_PI*ofGetElapsedTimef());
-            Mate.draw(j*400,k*400+250,245/2,450/2); //about to switch him into his own class
+            Mate.draw(k*400,k*400-550,245/2.5,450/2.5); //about to switch him into his own class
+
             ofPopMatrix();
             ofPopStyle();
             
@@ -102,7 +136,7 @@ void ofApp::draw(){
     ofSetColor(200, 200, 200);
     int videowidth = 630;
     int videoheight = 342;
-    grayImage.draw(400, 240,videowidth,videoheight);
+    grayImage.draw(360, 240,videowidth,videoheight);
     
     IplImage* eig = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
     IplImage* temp = cvCreateImage( cvGetSize(grayImage.getCvImage()), 32, 1 );
@@ -110,7 +144,7 @@ void ofApp::draw(){
     cvReleaseImage( &eig );
     cvReleaseImage( &temp );
     
-    grayImage.draw(400, 240,videowidth,videoheight);
+    grayImage.draw(360, 240,videowidth,videoheight);
     
     //id like to tint the video but not sure how
     for (int i=400; i<grayImage.width; i++){
@@ -138,7 +172,7 @@ void ofApp::draw(){
         }
     }
 
-    for (int i = 0; i < allClouds.size(); i++) { //drawing all the balls, every frame
+    for (int i = 0; i < allClouds.size(); i++) { //drawing all the clouds, every frame
         allClouds[i].draw();
     }
     
