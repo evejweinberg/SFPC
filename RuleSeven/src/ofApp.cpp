@@ -45,6 +45,14 @@ void ofApp::setup(){
     videosix.loadMovie("RuleSevenVideoSix.mov");
     videosix.setLoopState(OF_LOOP_NORMAL);
     videosix.play();
+    
+    videoseven.loadMovie("RuleSevenVideoSeven.mov");
+    videoseven.setLoopState(OF_LOOP_NORMAL);
+    videoseven.play();
+    
+    videoeight.loadMovie("RuleSevenVideoEight.mov");
+    videoeight.setLoopState(OF_LOOP_NORMAL);
+    videoeight.play();
 
     
     allofthetime.loadImage("allofthetime.png");
@@ -72,6 +80,8 @@ void ofApp::update(){
     videofour.update();
     videofive.update();
     videosix.update();
+    videoseven.update();
+    videoeight.update();
     
 
 
@@ -108,29 +118,15 @@ void ofApp::draw(){
     videofour.draw(340,540,330,200);
     videofive.draw(40,340,330,200);
     videosix.draw(1000,110,330,200); //taeyoon Goldberg
+    videoseven.draw(350,550,330,200); //not yet
+    videoeight.draw(1000,550,330,200); //not done
+
     
-//    cout >> pos[x] >> endl;
+
     
     ofSetColor(255);
     RuleSevenBG.draw(0,0,ofGetWidth(),ofGetHeight());
     
-
-    
-//    //-----------blob-------------------------
-//    ofSetColor(255,0,127);
-//    
-//    ofBeginShape();
-//    for (int i = 0; i < 100; i++){
-//        
-//        //float add = ofNoise(sin((i/100.0)*TWO_PI), ofGetElapsedTimef());  // symetrical
-//        
-//        float add = ofNoise(i/20.0f, ofGetElapsedTimef() * 3 * (float)mouseX / (float)ofGetWidth());
-//        
-//        ofVertex(	00 + (200 + 100 * add) * cos((i/100.0)*TWO_PI),
-//                 100 + (200 + 100 * add) * sin((i/100.0)*TWO_PI));
-//    }
-//    
-//    ofEndShape();
 
     
     // --------------------mesh circle that follows mouse---------------
@@ -141,30 +137,7 @@ void ofApp::draw(){
     float y = mouseY-PI;
     float r = 200;
     
-    float scale =  1; //ofMap( sin(ofGetElapsedTimef()), -1, 1, 0.4, 3);
-    
-//    tempMesh.addVertex( ofPoint(x,y));
-//    tempMesh.addTexCoord(ofPoint(x,y) * scale+ ofPoint(mouseX, mouseY));
-//    
-//    
-//    for (int i = 0; i < 100; i++){
-//        
-//        float angle = ofMap(i, 0, 100-1, 0, TWO_PI);
-//        
-//        ofPoint pos;
-//        pos.x = x + r * cos(angle);
-//        pos.y = y + r * sin(angle);
-//        
-//        tempMesh.addVertex(pos);
-//        tempMesh.addTexCoord(pos);
-//        
-//    }
-//    
-//    scribbles.getTextureReference().bind();
-//    tempMesh.draw();
-//    scribbles.getTextureReference().unbind(); //bind this movie to the mesh
-    
-    
+    float scale =  1;
     
     ofPushMatrix();
     ofTranslate(-100,0);
@@ -187,7 +160,7 @@ void ofApp::draw(){
     
     ofPushMatrix();
     ofTranslate(0, 70);
-//    ofDrawBitmapStringHighlight("press spacebar to clear", ofPoint(videoone.getWidth() + 250, 50), ofColor::magenta, ofColor::white);
+
     ofDrawBitmapStringHighlight("press + to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-160), ofColor::magenta, ofColor::white);
     ofDrawBitmapStringHighlight("press - to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-130), ofColor::magenta, ofColor::white);
     ofDrawBitmapStringHighlight("video speed: " + ofToString(videoone.getSpeed(), 3), ofPoint(videoone.getWidth() + 250, ofGetHeight()-100), ofColor::magenta, ofColor::white);
@@ -215,7 +188,9 @@ void ofApp::keyPressed(int key){
         videothree.setSpeed(videothree.getSpeed()+0.1);
         videofour.setSpeed(videofour.getSpeed()+0.1);
         videofive.setSpeed(videofive.getSpeed()+0.1);
-        videosix.setSpeed(videofive.getSpeed()+0.1);
+        videosix.setSpeed(videosix.getSpeed()+0.1);
+        videoseven.setSpeed(videoseven.getSpeed()+0.1);
+        videoeight.setSpeed(videoeight.getSpeed()+0.1);
     }
     
     if (key == '-'){
@@ -224,7 +199,9 @@ void ofApp::keyPressed(int key){
         videothree.setSpeed(videothree.getSpeed()-0.1);
         videofour.setSpeed(videofour.getSpeed()-0.1);
         videofive.setSpeed(videofive.getSpeed()-0.1);
-        videosix.setSpeed(videofive.getSpeed()-0.1);
+        videosix.setSpeed(videosix.getSpeed()-0.1);
+        videoseven.setSpeed(videoseven.getSpeed()-0.1);
+        videoeight.setSpeed(videoeight.getSpeed()-0.1);
     }
 
 }

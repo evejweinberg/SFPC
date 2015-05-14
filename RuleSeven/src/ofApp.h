@@ -56,7 +56,7 @@ class ofApp : public ofBaseApp{
     
     
     ofVideoPlayer scribbles;
-    ofVideoPlayer videoone, videotwo, videothree, videofour, videofive, videosix;
+    ofVideoPlayer videoone, videotwo, videothree, videofour, videofive, videosix, videoseven, videoeight;
     
     ofTrueTypeFont 	IntroBlack;
     ofTrueTypeFont 	IntroBlackLrg;

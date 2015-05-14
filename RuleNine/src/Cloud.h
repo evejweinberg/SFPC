@@ -22,13 +22,12 @@ public:
     };
     
     void update(){
-        cloud.update();
         pos.x +=1.5;
-        if (pos.x > ofGetWidth()+466){ //trying to say that if it goes off screen, write a new one
-            pos.x = -466;
-           
+        if (pos.x > ofGetWidth()+(ofGetWidth()/3)){ //trying to say that if it goes off screen, write a new one
+            pos.x -= (ofGetWidth()+(ofGetWidth()/3)+400);
         }
     };
+    
     
     void draw() {
         ofSetColor(192,223,228);

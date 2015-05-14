@@ -19,35 +19,19 @@ void ofApp::setup(){
     CompyImages.loadSequence("CompyAlpha/CompyAlpha_", "png", 0, 33, 5);
     CompyImages.preloadAllFrames();
 
-    //    allClouds.resize(4);
-    //    for (int i = 0; i < allClouds.size(); i++) {
-    //          allClouds[i].pos = ofPoint(i*220,i*290-70);
-    //            }
-    //    for (int j = 0; j < allClouds.size(); j++) {
-    //        allClouds[j+4].pos = ofPoint(j*220-400,j*290-270);
-    //    }
-
-//    for(int row=0; row<4; row++) {
-//        for(int col=0; col<4; col++) {
-//            Cloud cloud;  // create new instance of a cloud
-//            if (row %2==0){
-//                cloud.pos = ofVec2f((row+1)*600, (col+1)*400);
-//            } else {
-//                cloud.pos = ofVec2f((row+1)*600-300, (col+1)*400-200);
-//            }
-//            allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
-//        }
-//    }
+    float colWidth = ofGetWidth()/3;
+    float rowHeight = ofGetHeight()/3;
     
-    
-for(int row=0; row<5; row++) {
-    float offSet = (row % 2)*200;
-    for(int col=0; col<5; col++) {
-        Cloud cloud; // create new instance of a cloud
-        cloud.pos = ofVec2f((col+1)*466 +offSet, (row+1)*380-300); // set the new clouds starting position
-        allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
+    for(int row=0; row<5; row++) {
+        float offSet = (row % 2)*(colWidth/2);
+        for(int col=0; col<5; col++) {
+            Cloud cloud; // create new instance of a cloud
+            cloud.pos = ofVec2f(col*(colWidth+100) + offSet, row*rowHeight); // set the new clouds starting position
+            allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
+        }
     }
-}
+    
+
 
 //    after this code you will have an allClouds vector with 25 clouds
 //
@@ -63,6 +47,8 @@ for(int row=0; row<5; row++) {
 
 //--------------------------------------------------------------
 void ofApp::update(){
+    
+    counter = counter + 0.033f;
     
 
 
@@ -108,37 +94,34 @@ void ofApp::draw(){
             ofLine(0, i, ofGetWidth(), i);
             }
     
-    
-    for (int i = 0; i < allClouds.size(); i++) { //drawing all the clouds, every frame
-        allClouds[i].draw();
-    }
-
-    ofSetColor(255);
-    frame.draw(340,220);
-    ofSetColor(73,66,54);
-    type.draw(470,105);
-
 
     
     for (int k = 0; k < 2; k ++) {
                   for (int j = 0; j < 3; j ++) {
             
            ofSetColor(255);
+                    
+            Mate.draw(j*455+430,k*400-330,73,130);
+            Mate.draw(j*445+20,k*400+686,73,130);//about to switch him into his own class
+                    
+//            Mate.draw(j*400,k*400-340,100+(10 * sin(counter)),210+(10 * sin(counter))); //about to switch him into his own class
             CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-660,610*k+10,240,240); //the frame and the current frame
            CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*580)-50,410*k-130,240,240); //the frame and the current frame
-            ofPushMatrix();
-            ofPushStyle();
-            ofRectMode(OF_RECTMODE_CENTER);
-            Mate.draw(k*400,k*400-550,245/2.5,450/2.5); //about to switch him into his own class
+            
+            
 
-            ofPopMatrix();
-            ofPopStyle();
+            
             
             }
         }
     
 
-
+    ofSetColor(255);
+    frame.draw(340,220);
+    ofSetColor(73,66,54);
+    type.draw(470,105);
+    
+    
     ofSetColor(200, 200, 200);
     int videowidth = 630;
     int videoheight = 342;
@@ -178,7 +161,9 @@ void ofApp::draw(){
         }
     }
 
-    
+    for (int i = 0; i < allClouds.size(); i++) { //drawing all the clouds, every frame
+        allClouds[i].draw();
+    }
 
     ofSetColor(255);
     Nav.draw(0,0,ofGetWidth(), ofGetHeight());
