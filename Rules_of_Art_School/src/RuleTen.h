@@ -2,9 +2,10 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "baseScene.h"
 
 
-class RuleTen : public ofBaseApp{
+class RuleTen : public baseScene{
     
 public:
     void setup();

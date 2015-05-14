@@ -42,6 +42,6 @@ class RuleNine : public ofBaseApp{
     float cloudx;
     float 	counter;
     vector <Cloud> allClouds;
-//    vector <Mate> allMates;
+
   
 };

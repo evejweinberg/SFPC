@@ -2,10 +2,11 @@
 
 #include "ofMain.h"
 #include "BallDrop.h"
+#include "baseScene.h"
 
 #define ARTWORKTOTAL 15
 
-class RuleFour : public ofBaseApp{
+class RuleFour : public baseScene{
 
 	public:
 		void setup();

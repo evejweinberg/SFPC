@@ -5,7 +5,7 @@
 void RuleNine::setup(){
     
     type.loadImage("Rule9_type.png");
-    Nav.loadImage("Nav.png");
+  
     frame.loadImage("frame.png");
     Mate.loadImage("Mate.png");
     CompyFlip.loadMovie("CompyFlipBW.mov");
@@ -165,8 +165,6 @@ void RuleNine::draw(){
         allClouds[i].draw();
     }
 
-    ofSetColor(255);
-    Nav.draw(0,0,ofGetWidth(), ofGetHeight());
 
 
     }

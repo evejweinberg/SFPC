@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void RuleTwo::setup(){
     
-      Nav.loadImage("Nav.png");
+    
     
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
@@ -74,7 +74,7 @@ void RuleTwo::update(){
     }
     
     for (int i = 0; i < particleRuleTwos.size(); i++){
-        particleRuleTwos[i].addRepulsionForce(mouseX, mouseY, 200, 1.0f);
+        particleRuleTwos[i].addRepulsionForce(ofGetMouseX(), ofGetMouseY(), 200, 1.0f);
         for (int j = 0; j < i; j++){
             particleRuleTwos[i].addRepulsionForce(particleRuleTwos[j], 20, 0.03);
             }
@@ -184,8 +184,7 @@ void RuleTwo::draw(){
         springRuleTwos[i].draw();
     }
     
-    ofSetColor(255);
-    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
+
     
 }
 
@@ -220,7 +219,7 @@ void RuleTwo::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void RuleTwo::mouseDragged(int x, int y, int button){
     
-    particleRuleTwos[0].pos.set(mouseX, mouseY);
+    particleRuleTwos[0].pos.set(ofGetMouseX(), ofGetMouseY());
 
 
 

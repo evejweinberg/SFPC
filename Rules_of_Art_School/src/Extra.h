@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "baseScene.h"
 
-class Extra : public ofBaseApp{
+class Extra : public baseScene{
 
 	public:
 		void setup();

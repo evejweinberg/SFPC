@@ -2,9 +2,10 @@
 
 #include "ofMain.h"
 #include "Student.h"
+#include "baseScene.h"
 #define NSTUDENTS 400 // define the total number of students. Will I do this per quadrant?
 
-class RuleThree : public ofBaseApp{
+class RuleThree : public baseScene{
 
 	public:
 		void setup();

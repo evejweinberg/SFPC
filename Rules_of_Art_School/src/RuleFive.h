@@ -1,13 +1,16 @@
 #pragma once
-#ifndef _TEST_APP
-#define _TEST_APP
+//#ifndef _TEST_APP
+//#define _TEST_APP
 
 
 #include "ofMain.h"
 #include "particleFive.h"
 #include "noiseFieldFive.h"
+#include "baseScene.h"
 
-class RuleFive : public ofSimpleApp{
+class RuleFive : public baseScene{
+    
+ 
     
 public:
     
@@ -49,5 +52,5 @@ public:
     
 };
 
-#endif
+//#endif
 

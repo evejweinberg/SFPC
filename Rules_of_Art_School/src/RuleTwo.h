@@ -6,8 +6,9 @@
 #include "ofMain.h"
 #include "particleRuleTwo.h"
 #include "springRuleTwo.h"
+#include "baseScene.h"
 
-class RuleTwo : public ofBaseApp{
+class RuleTwo : public baseScene{
 
 	public:
 		void setup();

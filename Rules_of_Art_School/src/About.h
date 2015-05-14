@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "baseScene.h"
 
-class About : public ofBaseApp{
+class About : public baseScene{
 
 	public:
 		void setup();
@@ -20,3 +21,5 @@ class About : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     ofImage about;
 };
+
+

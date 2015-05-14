@@ -2,8 +2,9 @@
 
 #include "ofMain.h"
 #include "particleSix.h"
+#include "baseScene.h"
 
-class RuleSix : public ofBaseApp, public ofThread{
+class RuleSix : public baseScene, public ofThread{
 
 	public:
     

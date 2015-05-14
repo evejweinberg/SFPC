@@ -13,6 +13,20 @@ void Intro::update(){
 
 //--------------------------------------------------------------
 void Intro::draw(){
+    
+    //BG------white paper with light blue gridded lines--------------------
+    ofBackground(255);
+    ofSetColor( ofColor::lightBlue);
+    ofSetLineWidth(1);
+    for (int i = 0; i < ofGetWidth(); i = i + 20){
+        ofLine(i,0,i, ofGetHeight());
+        
+    }
+    
+    for (int i = 0; i < ofGetHeight(); i = i + 20){
+        ofLine(0, i, ofGetWidth(), i);
+    }
+
     ofSetColor(255);
     Title.draw(0,0);
 

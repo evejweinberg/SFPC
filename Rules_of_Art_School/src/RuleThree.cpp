@@ -138,12 +138,11 @@ void RuleThree::mouseMoved(int x, int y ){
 //--------------------------------------------------------------
 void RuleThree::mouseDragged(int x, int y, int button){
     
-       if (mouseX > 484 && mouseX < 800 && mouseY <474 && mouseY > 300){
+       if (ofGetMouseX() > 484 && ofGetMouseX() < 800 && ofGetMouseY() <474 && ofGetMouseY() > 300){
     line.addVertex(x,y);
              }
 
-    cout << mouseX << endl;
-    cout << mouseY << endl;
+
 }
 
 

@@ -4,11 +4,12 @@
 #include "ofxOpenCv.h"
 #include "ofxImageSequence.h"
 #include "Cloud.h"
-//#include "Mate.h"
+#include "baseScene.h"
 
 
 
-class RuleNine : public ofBaseApp{
+
+class RuleNine : public baseScene{
 
 	public:
 		void setup();
@@ -42,6 +43,6 @@ class RuleNine : public ofBaseApp{
     float cloudx;
     float 	counter;
     vector <Cloud> allClouds;
-//    vector <Mate> allMates;
+
   
 };

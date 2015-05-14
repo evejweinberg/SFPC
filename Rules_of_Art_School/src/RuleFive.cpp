@@ -4,7 +4,7 @@
 //--------------------------------------------------------------
 void RuleFive::setup(){
     
-    Nav.loadImage("Nav.png");
+  
     
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
@@ -82,7 +82,7 @@ void RuleFive::update(){
             ofVec2f frcFromNoise = NF.getNoiseForPosition(particleFives[i].pos.x, particleFives[i].pos.y,0.32);
             particleFives[i].addForce(frcFromNoise.x, frcFromNoise.y);
         } else {
-            particleFives[i].addAttractionForce(mouseX, mouseY, 2000,0.5);
+            particleFives[i].addAttractionForce(ofGetMouseX(), ofGetMouseY(), 2000,0.5);
             
         }
     }
@@ -164,9 +164,7 @@ void RuleFive::draw(){
     ofSetColor(255);
     FollowMe.draw(pos.x, pos.y, Artw,Arth);
     
-        
-    ofSetColor(255);
-    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
+
     
 
 }

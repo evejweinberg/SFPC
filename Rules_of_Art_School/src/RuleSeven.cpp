@@ -133,8 +133,8 @@ void RuleSeven::draw(){
     ofSetColor(255);
     ofMesh tempMesh;
     tempMesh.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
-    float x = mouseX-PI;
-    float y = mouseY-PI;
+    float x = ofGetMouseX()-PI;
+    float y = ofGetMouseY()-PI;
     float r = 200;
     
     float scale =  1;
@@ -142,9 +142,9 @@ void RuleSeven::draw(){
     ofPushMatrix();
     ofTranslate(-100,0);
     ofSetColor(brown);
-    IntroBlack.drawString(ThereisOnly, mouseX-100,mouseY+25);
+    IntroBlack.drawString(ThereisOnly, ofGetMouseX()-100,ofGetMouseY()+25);
    
-    IntroBlackLrg.drawString(WORK, mouseX+100,mouseY+100);
+    IntroBlackLrg.drawString(WORK, ofGetMouseX()+100,ofGetMouseY()+100);
    
     ofPopMatrix();
     

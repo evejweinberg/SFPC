@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void RuleTen::setup(){
     
-        Nav.loadImage("Nav.png");
+    
     
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
@@ -117,8 +117,7 @@ void RuleTen::draw(){
     ofPopMatrix();
     YouCan.draw(1000, 745, 289,103);
     
-    ofSetColor(255);
-    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
+
     
 }
 

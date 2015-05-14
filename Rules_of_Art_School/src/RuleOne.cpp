@@ -11,7 +11,7 @@ void RuleOne::setup(){
     IntroBlack.loadFont("Intro Black.otf", 187); //font size
     Zach.loadImage("Zach.png");
     RuleOneeverything.loadImage("RuleOneeverything.png");
-    Nav.loadImage("Nav.png");
+  
     
     salmon.setHsb(0,140,224);
     tan.setHsb(30,58,234); // (x/360*255, x/100*255, x/100*255)
@@ -60,7 +60,7 @@ void RuleOne::draw(){
     float sinValue = sin(ofGetElapsedTimef()*2);
     ofColor c;
     c.set(ofColor::pink);
-    c.lerp( ofColor::blue,  ofMap(mouseX, 0, ofGetWidth(), 0, 1, true));
+    c.lerp( ofColor::blue,  ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 1, true));
     ofSetColor(c);
     ofCircle(610,490+sinValue*17, 5);
     ofCircle(640,490+sinValue*15, 5);
@@ -86,17 +86,15 @@ void RuleOne::draw(){
     ofSetColor(brown);
     RuleOneeverything.draw(50,50,1328,754);
 
-    if (ofGetMousePressed() && mouseX>100 && mouseX<ofGetWidth()-305){
-        moveZach = mouseX;
+    if (ofGetMousePressed() && ofGetMouseX()>100 && ofGetMouseX()<ofGetWidth()-305){
+        moveZach = ofGetMouseX();
     }
     
     Zach.draw(moveZach-220,434,484,430);
     
  
     
-    
-    ofSetColor(255);
-    Nav.draw(0,0,ofGetWidth(),ofGetHeight());
+
 
 }
 

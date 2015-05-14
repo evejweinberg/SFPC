@@ -149,7 +149,7 @@ void RuleSix::update(){
             
             particleSixs[count].addAttractionForce(x, y, 1000, 0.1);
             //            // particleSixs[i * nPtsH + j].addClockwiseForce(mouseX, mouseY, 100, 0.4);
-            particleSixs[count].addRepulsionForce(mouseX, mouseY, 500, 0.2);
+            particleSixs[count].addRepulsionForce(ofGetMouseX(), ofGetMouseY(), 500, 0.2);
             //
             
             particleSixs[count].addDampingForce();

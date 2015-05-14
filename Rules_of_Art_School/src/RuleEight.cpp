@@ -64,23 +64,23 @@ void RuleEight::draw(){
     
  //---------this is the mesh to reveal the analyze artwork------------
 
-    cout <<  fabs(ofGetWidth()/2 - mouseX)  << endl;
+    cout <<  fabs(ofGetWidth()/2 - ofGetMouseX())  << endl;
     
-    fromcenterdistance = (fabs(ofGetWidth()/2 - mouseX))/2;
+    fromcenterdistance = (fabs(ofGetWidth()/2 - ofGetMouseY()))/2;
 
     
-    if (mouseX<ofGetWidth()/2){
-        leftYTarget = mouseY + fromcenterdistance;
-        rightYTarget = mouseY - fromcenterdistance;
+    if (ofGetMouseX()<ofGetWidth()/2){
+        leftYTarget = ofGetMouseY() + fromcenterdistance;
+        rightYTarget = ofGetMouseY() - fromcenterdistance;
     }
-    if (mouseX>ofGetWidth()/2){
-        rightYTarget = mouseY + fromcenterdistance;
-        leftYTarget = mouseY - fromcenterdistance;
+    if (ofGetMouseX()>ofGetWidth()/2){
+        rightYTarget = ofGetMouseY() + fromcenterdistance;
+        leftYTarget = ofGetMouseY() - fromcenterdistance;
 
     }
     
-    RuleEightLeftVertex = 0.95 * RuleEightLeftVertex + 0.05 * (mouseY-100);
-    RuleEightRightVertex = 0.95 * RuleEightLeftVertex + 0.05 * (mouseY);
+    RuleEightLeftVertex = 0.95 * RuleEightLeftVertex + 0.05 * (ofGetMouseY()-100);
+    RuleEightRightVertex = 0.95 * RuleEightLeftVertex + 0.05 * (ofGetMouseY());
     
     
     ofMesh tempMesh;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "baseScene.h"
 
 class Nav : public ofBaseApp{
 
