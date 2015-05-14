@@ -5,6 +5,20 @@ static string voices[24] = {"Agnes", "Albert", "Alex", "Bad News", "Bahh", "Bell
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    colors[0].set(224,103,99); //coral
+    colors[1].set(140,207,160); //green
+    colors[2].set(98,196,215); //teal
+    colors[3].set(243,167,153); //salmon
+    colors[4].set(236,214,95); //yellow
+    colors[5].set(150,107,138); //purple
+    colors[6].set(91,116,183); //drkblue
+    colors[7].set(224,103,99); //coral
+    colors[8].set(140,207,160); //green
+    colors[9].set(202,222,111); //lime
+    colors[10].set(148,114,101); //lightbroen
+    colors[11].set(75,65,42); //drk brown
+
+    
     IntroBlack.loadFont("Intro Black.otf", 32); //font size
 //    ofBackgroundHex(0xff72a1);
     ofSetFrameRate(12);
@@ -51,6 +65,28 @@ void ofApp::setup(){
     // in a sperate thread so that it does
     // not block the drawing
     startThread();
+    
+    ofSetVerticalSync(true);
+    ofSetFrameRate(60);
+    
+    
+    nPtsW = 20;
+    nPtsH = 20;
+    
+    for (int i = 0; i < nPtsW; i++){
+        for (int j = 0; j < nPtsH; j++){
+            
+            float x = ofMap(i,0,nPtsW, 0,ofGetWidth());
+            float y = ofMap(j,0,nPtsH, 0,ofGetHeight());
+            particle myParticle;
+            myParticle.setInitialCondition(x,y,0,0);
+            // more interesting with diversity :)
+            // uncomment this:
+            //myParticle.damping = ofRandom(0.01, 0.05);
+            particles.push_back(myParticle);
+        }
+    }
+
 
 
 
@@ -92,6 +128,38 @@ void ofApp::update(){
     if(bRandomVoice) {
         voice = voices[(int)ofRandom(24)];
     }
+    
+    // on every frame
+    // we reset the forces
+    // add in any forces on the particle
+    // perfom damping and
+    // then update
+    
+    int count = 0;
+    
+    for (int i = 0; i < nPtsW; i++){
+        for (int j = 0; j < nPtsH; j++){
+            
+            
+            float x = ofMap(i,0,nPtsW, 0,ofGetWidth());
+            float y = ofMap(j,0,nPtsH, 0,ofGetHeight());
+            
+            particles[count].resetForce();
+            
+            
+            particles[count].addAttractionForce(x, y, 1000, 0.1);
+            //            // particles[i * nPtsH + j].addClockwiseForce(mouseX, mouseY, 100, 0.4);
+            particles[count].addRepulsionForce(mouseX, mouseY, 500, 0.2);
+            //
+            
+            particles[count].addDampingForce();
+            particles[count].update();
+            
+            count++;
+            
+        }
+    }
+
 
 }
 
@@ -111,6 +179,12 @@ void ofApp::draw(){
         ofLine(0, i, ofGetWidth(), i);
     }
 
+    
+    for (int i = 0; i < particles.size(); i++){
+        ofSetColor(colors[i % 12]);
+        particles[i].draw();
+    }
+    
     
     int strWidth = (seussLines[lineCount].length()*25) ;
     // x and y for the drawing

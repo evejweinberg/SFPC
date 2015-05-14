@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "particle.h"
 
 class ofApp : public ofBaseApp, public ofThread{
 
@@ -36,5 +37,11 @@ class ofApp : public ofBaseApp, public ofThread{
     
     bool bRandomVoice;
     string voice;
+    
+    vector <particle> particles;
+    
+    int nPtsW;
+    int nPtsH;
+    ofColor colors[12];
 		
 };

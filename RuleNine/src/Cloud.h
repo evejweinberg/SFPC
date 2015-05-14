@@ -24,8 +24,8 @@ public:
     void update(){
         cloud.update();
         pos.x +=1.5;
-        if (pos.x > ofGetWidth()+400){ //trying to say that if it goes off screen, write a new one
-            pos.x = -200;
+        if (pos.x > ofGetWidth()+466){ //trying to say that if it goes off screen, write a new one
+            pos.x = -466;
            
         }
     };

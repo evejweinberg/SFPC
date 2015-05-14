@@ -44,7 +44,7 @@ for(int row=0; row<5; row++) {
     float offSet = (row % 2)*200;
     for(int col=0; col<5; col++) {
         Cloud cloud; // create new instance of a cloud
-        cloud.pos = ofVec2f((row+1)*420 +offSet, (col+1)*380); // set the new clouds starting position
+        cloud.pos = ofVec2f((col+1)*466 +offSet, (row+1)*380-300); // set the new clouds starting position
         allClouds.push_back(cloud); // push the cloud into the vector storing all our clouds
     }
 }
@@ -64,6 +64,7 @@ for(int row=0; row<5; row++) {
 //--------------------------------------------------------------
 void ofApp::update(){
     
+
 
     CompyFlip.update();
     for (int i = 0; i < allClouds.size(); i++) {
@@ -107,6 +108,11 @@ void ofApp::draw(){
             ofLine(0, i, ofGetWidth(), i);
             }
     
+    
+    for (int i = 0; i < allClouds.size(); i++) { //drawing all the clouds, every frame
+        allClouds[i].draw();
+    }
+
     ofSetColor(255);
     frame.draw(340,220);
     ofSetColor(73,66,54);
@@ -172,9 +178,6 @@ void ofApp::draw(){
         }
     }
 
-    for (int i = 0; i < allClouds.size(); i++) { //drawing all the clouds, every frame
-        allClouds[i].draw();
-    }
     
 
     ofSetColor(255);
