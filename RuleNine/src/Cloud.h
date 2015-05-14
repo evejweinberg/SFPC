@@ -19,30 +19,24 @@ public:
     
     Cloud () {
         cloud.loadImage("cloud.png");
-//        cloud.pos(100,100);
     };
     
     void update(){
         cloud.update();
-//        if (cloud.x > ofGetWidth()+214){ //trying to say that if it goes off screen, write a new one
-//            cloud.x = -214;
-//           
-//        }
+        pos.x +=1.5;
+        if (pos.x > ofGetWidth()+200){ //trying to say that if it goes off screen, write a new one
+            pos.x = -200;
+           
+        }
     };
     
     void draw() {
-        for (int i = 0; i <6; i++){
-            for (int j = 0; j <6; j++){
-        ofSetColor(192,223,228); //light blue
-        cloud.draw(i*500+ofGetElapsedTimef()*50,j*500,214,91); //animate clouds on X here
-        }
-        }
-     
-        
-    };
+        ofSetColor(192,223,228);
+        cloud.draw(pos); //allocate x and y for later use
+   };
     
-    ofImage cloud;
-     ofPoint pos;
+    ofImage cloud; //allocate space for an image
+     ofPoint pos; //define an ofPoint
     
     };
 #endif /* defined(__RuleNine__Cloud__) */

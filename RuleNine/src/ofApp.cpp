@@ -33,6 +33,7 @@ void ofApp::update(){
     CompyFlip.update();
     for (int i = 0; i < allClouds.size(); i++) {
         allClouds[i].update();
+//        allClouds[i].pos.x +=2;
         
     }
 
@@ -84,6 +85,7 @@ void ofApp::draw(){
             
            ofSetColor(255);
             CompyImages.getFrameForTime(ofGetElapsedTimef())->draw((j*800)-680,630*k-20,270,271); //the frame and the current frame
+           
             ofPushMatrix();
             ofPushStyle();
             ofRectMode(OF_RECTMODE_CENTER);
@@ -94,7 +96,6 @@ void ofApp::draw(){
             
             }
         }
-    
     
 
 
