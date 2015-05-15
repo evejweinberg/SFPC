@@ -34,9 +34,8 @@ class RuleNine : public baseScene{
     ofColor myColor;
     ofColor colorvar;
     ofImage art, frame;
-    ofImage Mate;
+    ofImage Mate, Inst;
     ofImage type;
-    ofVideoPlayer CompyFlip;
     ofxImageSequence CompyImages;
   
     

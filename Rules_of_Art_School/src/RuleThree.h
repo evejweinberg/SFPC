@@ -11,7 +11,9 @@ class RuleThree : public baseScene{
 		void setup();
 		void update();
 		void draw();
-
+    
+        void disable();
+        void enable ();
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );

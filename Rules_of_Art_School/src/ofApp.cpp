@@ -5,23 +5,25 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    scenes[0] = new Intro();
-    scenes[1] = new RuleOne();
-    scenes[2] = new RuleTwo();
-    scenes[3] = new RuleThree();
-    scenes[4] = new RuleFour();
-    scenes[5] = new RuleFive();
-    scenes[6] = new RuleSix();
-    scenes[7] = new RuleSeven();
-    scenes[8] = new RuleEight();
-    scenes[9] = new RuleNine();
-    scenes[10] = new RuleTen();
-    scenes[11] = new Extra();
-    scenes[12] = new About();
+    scenes.push_back(new Intro());
+    scenes[0]->enable();
     
-    currentScene = 0;
+    scenes.push_back(new RuleOne());
+    scenes.push_back(new RuleTwo());
+    scenes.push_back(new RuleThree());
+    scenes.push_back(new RuleFour());
+    scenes.push_back(new RuleFive());
+    scenes.push_back(new RuleSix());
+    scenes.push_back(new RuleSeven());
+    scenes.push_back(new RuleEight());
+    scenes.push_back(new RuleNine());
+    scenes.push_back(new RuleTen());
+    scenes.push_back(new Extra());
+    scenes.push_back(new About());
     
-    for (int i = 0; i < 13; i++){
+
+    
+    for (int i = 0; i < scenes.size(); i++){
         scenes[i]->setup();
     }
     
@@ -29,10 +31,28 @@ void ofApp::setup(){
 
 }
 
+
+void ofApp::enableScene(int index) {
+    
+    for (int i = 0; i < scenes.size(); i++){
+        if(i==index) {
+            scenes[i]->enable();
+        } else {
+            scenes[i]->disable();
+        }
+    }
+    
+}
+
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    scenes[currentScene]->update();
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) {
+            scenes[i]->update();
+        }
+    }
+    
     nav.update();
 
 }
@@ -40,52 +60,64 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    scenes[currentScene]->draw();
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) {
+            ofPushStyle();
+            ofPushMatrix();
+            scenes[i]->draw();
+            ofPopMatrix();
+            ofPopStyle();
+        }
+    }
+    
     nav.draw();
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if (key == '1') currentScene = 1;
-    if (key == '2') currentScene = 2;
-    if (key == '3') currentScene = 3;
-    if (key == '4') currentScene = 4;
-    if (key == '5') currentScene = 5;
-    if (key == '6') currentScene = 6;
-    if (key == '7') currentScene = 7;
-    if (key == '8') currentScene = 8;
-    if (key == '9') currentScene = 9;
-    if (key == '0') currentScene = 10;
-    if (key == 'i') currentScene = 0;
-    if (key == 'x') currentScene = 11;
-    if (key == 'a') currentScene = 12;
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->keyPressed(key);
+    }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->keyReleased(key);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->mouseMoved(x,y);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->mouseDragged(x,y,button);
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->mousePressed(x,y,button);
+    }
+    
+    nav.mousePressed(x,y,button);
+    enableScene(nav.setActiveScene);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    for (int i = 0; i < scenes.size(); i++){
+        if(scenes[i]->isEnabled()) scenes[i]->mouseReleased(x,y,button);
+    }
 }
 
 //--------------------------------------------------------------

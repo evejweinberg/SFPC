@@ -161,9 +161,9 @@ void RuleSeven::draw(){
     ofPushMatrix();
     ofTranslate(0, 70);
 
-    ofDrawBitmapStringHighlight("press + to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-160), ofColor::magenta, ofColor::white);
-    ofDrawBitmapStringHighlight("press - to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-130), ofColor::magenta, ofColor::white);
-    ofDrawBitmapStringHighlight("video speed: " + ofToString(videoone.getSpeed(), 3), ofPoint(videoone.getWidth() + 250, ofGetHeight()-100), ofColor::magenta, ofColor::white);
+    ofDrawBitmapStringHighlight("press + to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-160), ofColor::yellow, ofColor::brown);
+    ofDrawBitmapStringHighlight("press - to increase video speed", ofPoint(videoone.getWidth() + 200, ofGetHeight()-130), ofColor::yellow, ofColor::brown);
+    ofDrawBitmapStringHighlight("video speed: " + ofToString(videoone.getSpeed(), 3), ofPoint(videoone.getWidth() + 250, ofGetHeight()-100), ofColor::yellow, ofColor::brown);
     
     ofPopMatrix();
     

@@ -12,7 +12,8 @@ class RuleFour : public baseScene{
 		void setup();
 		void update();
 		void draw();
-
+    void enable();
+    void disable();
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -24,7 +25,7 @@ class RuleFour : public baseScene{
 		void gotMessage(ofMessage msg);
 
     
-    ofImage Consider, ConsiderFull, Everything, tobe, an, Experiment, InstA, Nav;
+    ofImage Consider, ConsiderFull, Everything, tobe, an, Experiment, InstA;
     ofColor col;
     ofColor color;
     
@@ -54,5 +55,9 @@ class RuleFour : public baseScene{
     ofImage LikeThis[ARTWORKTOTAL];
     string str = "LikeThis";
    
+    
+    int nextArtwork=0;
+    int nextColor=0;
+    
 		
 };

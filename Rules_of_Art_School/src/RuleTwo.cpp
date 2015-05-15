@@ -17,6 +17,7 @@ void RuleTwo::setup(){
     Ring.loadImage("Circle.png");
     PullEverything.loadImage("PullEverything.png");
     GeneralDuties.loadImage("GeneralDuties.png");
+    Inst.loadImage("Inst_RuleTwo.png");
     
     
     ofSetVerticalSync(true);
@@ -32,7 +33,6 @@ void RuleTwo::setup(){
 
         }
 
-  
     
     for (int i = 0; i < 8; i++){ //draw all 8 particleRuleTwos, set their initial condition
         particleRuleTwo myparticleRuleTwo;
@@ -50,7 +50,7 @@ void RuleTwo::setup(){
     }
     
     particleRuleTwos[0].bFixed = true;
-   
+
 
     
     for (int i = 1; i < particleRuleTwos.size(); i++){
@@ -63,6 +63,19 @@ void RuleTwo::setup(){
     }
 
 
+}
+
+void RuleTwo::disable() {
+    enabled = false;
+    for (int i = 0; i < 7; i++){
+         opactity[i] = 0.1;
+    }
+    
+}
+
+void RuleTwo::enable() {
+    enabled = true;
+    
 }
 
 //--------------------------------------------------------------
@@ -110,6 +123,8 @@ void RuleTwo::draw(){
     GeneralDuties.draw(450,390,435,53);
     PullEverything.draw(530,450,426,117);
     
+    ofSetColor(255);
+    Inst.draw(10,10);
 
     
     

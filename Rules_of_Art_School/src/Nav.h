@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "baseScene.h"
 
-class Nav : public ofBaseApp{
+class Nav : public baseScene {
 
 	public:
 		void setup();
@@ -36,7 +36,13 @@ class Nav : public ofBaseApp{
     ofImage icon[3];
     ofPoint pos;
     
+    float radius = 15;
     
     ofTrueTypeFont IntroBlack;
+    
+    int setActiveScene =0;
+    int circlesTotal = 13;
+    int ballclicked =12;
+   
 		
 };

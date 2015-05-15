@@ -11,7 +11,7 @@ void RuleFour::setup(){
     an.loadImage("an.png");
     Experiment.loadImage("Experiment.png");
     InstA.loadImage("Inst3.png");
-    Nav.loadImage("Nav.png");
+  
     
     colors[0].set(224,103,99); //coral
     colors[1].set(140,207,160); //green
@@ -41,6 +41,14 @@ void RuleFour::setup(){
 
     Myradius=1.0;
 
+}
+
+void RuleFour::enable(){
+    enabled = true;
+}
+
+void RuleFour::disable(){
+    enabled = false;
 }
 
 //--------------------------------------------------------------
@@ -93,7 +101,7 @@ void RuleFour::draw(){
     ofSetColor(255);
    
     
-    Nav.draw(0,0);
+   
     
 }
 
@@ -142,8 +150,14 @@ void RuleFour::mousePressed(int x, int y, int button){
             
             BallDrop ball; //instantiating a new variable 'ba'' of the type 'balldrop'
 
-            ball.artwork = &LikeThis[(int)ofRandom(ARTWORKTOTAL)];
-            ball.col = colors[(int)ofRandom(9)];
+            ball.artwork = &LikeThis[nextArtwork];
+            ball.col = colors[nextColor];
+            
+            nextArtwork++;
+            if(nextArtwork >= 15) nextArtwork=0;
+            
+            nextColor++;
+            if(nextColor >= 9) nextColor=0;
             
             ball.pos.set(ofRandom(0,ofGetWidth()), ofRandom(-ball.radius, -ball.radius*10)); //also draw a new ball up top
             

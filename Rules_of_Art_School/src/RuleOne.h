@@ -10,6 +10,8 @@ class RuleOne : public baseScene{
 		void update();
 		void draw();
 
+        void enable();
+        void disable();
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -26,7 +28,7 @@ class RuleOne : public baseScene{
     char letterU[255];
     char letterS[255];
     char letterT2[255];
-    ofImage Zach;
+    ofImage Zach, Inst;
     ofImage RuleOneeverything;
     
     ofColor salmon;

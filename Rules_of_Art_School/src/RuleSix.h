@@ -15,7 +15,8 @@ class RuleSix : public baseScene, public ofThread{
         void threadedFunction();
 
 		
-
+        void enable();
+        void disable();
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -44,5 +45,6 @@ class RuleSix : public baseScene, public ofThread{
     int nPtsW;
     int nPtsH;
     ofColor colors[12];
-		
+    
+
 };

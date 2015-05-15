@@ -15,8 +15,7 @@ void Nav::setup(){
     colors[9].set(224,103,99); //pinkagain
     colors[10].set(85,85,140); //reallydarkblue
     
-    float xPos = mouseX;
-    
+    float xPos = ofGetMouseX();
     
     IntroBlack.loadFont("Intro Black.otf", 15);
     
@@ -38,24 +37,25 @@ void Nav::update(){
 //--------------------------------------------------------------
 void Nav::draw(){
     
-    int navcirc;
-    int circlesTotal = 13;
-    float radius = 15;
+   
     
-    for (navcirc = 0; navcirc < circlesTotal; navcirc++) {
+    for (int navcirc = 0; navcirc < circlesTotal; navcirc++) {
         ofSetColor(colors[navcirc]);
         pos.set(ofGetWidth()-37,-100+ofGetHeight()-50*navcirc);
         if (navcirc > 10){
             colors[navcirc] = colors[navcirc % 10];
         }
         
-        if (pos.distance(ofPoint(mouseX,mouseY)) < radius){
+        if (pos.distance(ofPoint(ofGetMouseX(),ofGetMouseY())) < 15 || ballclicked == navcirc){
             radius = 25;
+            
         } else {
             radius = 15;
         }
+    
         
-        //mousePress action here?
+        
+        
         
         ofCircle(pos,radius);
         int currentCircle = circlesTotal - navcirc;
@@ -79,6 +79,7 @@ void Nav::draw(){
     }
     
     
+    
     icon[1].draw(ofGetWidth()-47, ofGetHeight()-709); //house
     icon[0].draw(ofGetWidth()-47, ofGetHeight()-109); //?
     icon[2].draw(ofGetWidth()-47, ofGetHeight()-158); // +
@@ -87,6 +88,7 @@ void Nav::draw(){
 
 //--------------------------------------------------------------
 void Nav::keyPressed(int key){
+    
 
 }
 
@@ -107,7 +109,17 @@ void Nav::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void Nav::mousePressed(int x, int y, int button){
-
+    for (int navcirc = 0; navcirc < circlesTotal; navcirc++) {
+        pos.set(ofGetWidth()-37,-100+ofGetHeight()-50*navcirc);
+        
+        if (pos.distance(ofPoint(x,y)) < radius){
+            setActiveScene = circlesTotal-navcirc-1;
+            ballclicked = navcirc;
+            
+            
+            
+        }
+    }
 }
 
 //--------------------------------------------------------------

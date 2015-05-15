@@ -20,7 +20,6 @@ void RuleSix::setup(){
 
     
     IntroBlack.loadFont("Intro Black.otf", 32); //font size
-//    ofBackgroundHex(0xff72a1);
     ofSetFrameRate(12);
     
     nextLetterTime = ofGetElapsedTimef();
@@ -64,7 +63,6 @@ void RuleSix::setup(){
     // we are running the systems commands
     // in a sperate thread so that it does
     // not block the drawing
-    startThread();
     
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
@@ -110,8 +108,6 @@ void RuleSix::threadedFunction() {
         system(cmd.c_str());
 #endif
         
-        
-        
         // step to the next word
         step ++;
         step %= words.size();
@@ -120,6 +116,17 @@ void RuleSix::threadedFunction() {
         ofSleepMillis(10);
     }
 }
+
+void RuleSix::enable() {
+    enabled = true;
+    startThread();
+}
+
+void RuleSix::disable() {
+    enabled = false;
+    stopThread();
+}
+
 
 //--------------------------------------------------------------
 void RuleSix::update(){

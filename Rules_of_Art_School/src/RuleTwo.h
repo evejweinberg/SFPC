@@ -15,6 +15,8 @@ class RuleTwo : public baseScene{
 		void update();
 		void draw();
 
+    void disable();
+    void enable();
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -28,7 +30,7 @@ class RuleTwo : public baseScene{
     ofImage Head;
     ofImage Ring;
     ofImage GeneralDuties;
-    ofImage PullEverything;
+    ofImage PullEverything, Inst;
 
   
 

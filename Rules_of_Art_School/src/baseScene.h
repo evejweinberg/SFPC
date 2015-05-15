@@ -1,33 +1,16 @@
-//
-////this indef/define part was automatically generated
-//
-//#ifndef __Rules_of_Art_School__baseScene__
-//#define __Rules_of_Art_School__baseScene__
-//
-//#include <stdio.h>
-//
-//
-//
-//#endif
-
-
-
-
-//this indef/define I copy/pasted from Zach's algo/week9 example
-
-#ifndef _BASE_SCENE
-#define _BASE_SCENE
-
+#pragma once
 
 #include "ofMain.h"
 
 // 'vurtual void' is telling the compiler that anything subclassing this class shoud always have this function
 class baseScene {
     
-    
 public:
     
     virtual void setup();
+    
+    
+    
     virtual void update();
     virtual void draw();
     
@@ -42,8 +25,15 @@ public:
     virtual void gotMessage(ofMessage msg);
     
     
+    virtual void enable()  {enabled=true;};
+    virtual void disable() {enabled=false;};
+    
+    
+    bool isEnabled() {return enabled;};
+    
+protected:
+    bool enabled = false;
+    
 };
 
 
-
-#endif

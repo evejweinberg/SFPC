@@ -8,9 +8,7 @@ void RuleNine::setup(){
   
     frame.loadImage("frame.png");
     Mate.loadImage("Mate.png");
-    CompyFlip.loadMovie("CompyFlipBW.mov");
-    CompyFlip.setLoopState(OF_LOOP_NORMAL);
-    CompyFlip.play();
+    Inst.loadImage("Inst_RuleNine.png");
     
     videoGrabber.initGrabber(320, 240);
     
@@ -52,8 +50,7 @@ void RuleNine::update(){
     
 
 
-    CompyFlip.update();
-    for (int i = 0; i < allClouds.size(); i++) {
+        for (int i = 0; i < allClouds.size(); i++) {
         allClouds[i].update();
 
         
@@ -94,7 +91,8 @@ void RuleNine::draw(){
             ofLine(0, i, ofGetWidth(), i);
             }
     
-
+    ofSetColor(255);
+    Inst.draw(590,10);
     
     for (int k = 0; k < 2; k ++) {
                   for (int j = 0; j < 3; j ++) {
@@ -119,7 +117,7 @@ void RuleNine::draw(){
     ofSetColor(255);
     frame.draw(340,220);
     ofSetColor(73,66,54);
-    type.draw(470,105);
+   
     
     
     ofSetColor(200, 200, 200);
@@ -165,7 +163,7 @@ void RuleNine::draw(){
         allClouds[i].draw();
     }
 
-
+ type.draw(470,105);
 
     }
 
