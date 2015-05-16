@@ -31,7 +31,7 @@ void ofApp::setup(){
 
 }
 
-
+//------if the current scene is the index, enable it.
 void ofApp::enableScene(int index) {
     
     for (int i = 0; i < scenes.size(); i++){
@@ -57,7 +57,7 @@ void ofApp::update(){
 
 }
 
-//--------------------------------------------------------------
+//-----draw the scenes---------------------------------------------------------
 void ofApp::draw(){
     
     for (int i = 0; i < scenes.size(); i++){
@@ -74,12 +74,12 @@ void ofApp::draw(){
     
 }
 
-//--------------------------------------------------------------
+//----------for all numbers check if that number is pressed, if it is then enable the scene--------------------------------------------
 void ofApp::keyPressed(int key){
     for (int i = 0; i < scenes.size(); i++){
         if(scenes[i]->isEnabled()) scenes[i]->keyPressed(key);
     }
-    
+    //isEnabled is a bool in the base scene's header, so if you press the button the virtual void of enabled of that scene is true.
 }
 
 //--------------------------------------------------------------
@@ -94,6 +94,7 @@ void ofApp::mouseMoved(int x, int y ){
     for (int i = 0; i < scenes.size(); i++){
         if(scenes[i]->isEnabled()) scenes[i]->mouseMoved(x,y);
     }
+    //why would we enable on mouse move?
 }
 
 //--------------------------------------------------------------

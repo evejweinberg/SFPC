@@ -92,7 +92,7 @@ void RuleNine::draw(){
             }
     
     ofSetColor(255);
-    Inst.draw(590,10);
+    Inst.draw(590,ofGetHeight()-150);
     
     for (int k = 0; k < 2; k ++) {
                   for (int j = 0; j < 3; j ++) {
@@ -163,7 +163,8 @@ void RuleNine::draw(){
         allClouds[i].draw();
     }
 
- type.draw(470,105);
+    ofSetColor(73,66,54);
+    type.draw(470,105);
 
     }
 

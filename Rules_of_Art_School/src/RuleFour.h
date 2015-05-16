@@ -28,7 +28,7 @@ class RuleFour : public baseScene{
     ofImage Consider, ConsiderFull, Everything, tobe, an, Experiment, InstA;
     ofColor col;
     ofColor color;
-    
+  
  
  
     unsigned long last;

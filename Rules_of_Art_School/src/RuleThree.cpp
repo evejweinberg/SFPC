@@ -140,7 +140,7 @@ void RuleThree::draw(){
         ofLine(0, i, ofGetWidth(), i);
     }
 
-//    lineFbo.begin();
+
     ofSetColor(salmon);
     ofSetLineWidth(6);
 
@@ -149,7 +149,7 @@ void RuleThree::draw(){
     }
     
     line.draw();
-//    lineFbo.end();
+
   
     
     //--------call student class-------------------

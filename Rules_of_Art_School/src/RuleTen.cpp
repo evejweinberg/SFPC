@@ -46,6 +46,18 @@ void RuleTen::setup(){
     
 }
 
+void RuleTen::enable(){
+    enabled = true;
+    
+    float x=ofGetWidth()-500;       // set X and Y outside of the for loop (see above)
+    float y = 140;
+
+
+}
+void RuleTen::disable(){
+    enabled = false;
+}
+
 //--------------------------------------------------------------
 void RuleTen::update(){
     

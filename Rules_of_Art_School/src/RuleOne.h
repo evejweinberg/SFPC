@@ -28,8 +28,8 @@ class RuleOne : public baseScene{
     char letterU[255];
     char letterS[255];
     char letterT2[255];
-    ofImage Zach, Inst;
-    ofImage RuleOneeverything;
+    ofImage RuleOneeverything, Zach, Inst;
+    int moveup;
     
     ofColor salmon;
     ofColor tan;

@@ -22,6 +22,7 @@ void RuleOne::setup(){
     royal.setHsb(157,127,181);
     blue.setHsb(133,138,214);
     pink.setHsb(4,43,237);
+   
 
 
 
@@ -29,16 +30,19 @@ void RuleOne::setup(){
 
 void RuleOne::enable(){
     enabled = true;
+    
 
 }
 
 void RuleOne::disable(){
     enabled = false;
+    
 }
 
 
 //--------------------------------------------------------------
 void RuleOne::update(){
+    Zach.draw(300,300,484,430);
 
 }
 
@@ -73,15 +77,16 @@ void RuleOne::draw(){
     c.set(ofColor::pink);
     c.lerp( ofColor::blue,  ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 1, true));
     ofSetColor(c);
-    ofCircle(610,490+sinValue*17, 5);
-    ofCircle(640,490+sinValue*15, 5);
-    ofCircle(670,490+sinValue*20, 5);
+    ofCircle(610,480+sinValue*17, 5);
+    ofCircle(640,480+sinValue*15, 5);
+    ofCircle(670,480+sinValue*20, 5);
 
 //----------draw letters-----------------
+    moveup = 20;
     ofSetColor(255);
-    Inst.draw(10,10);
+    Inst.draw(430,ofGetHeight()-70);
     
-    letterheight = 380;
+    letterheight = 380- moveup;
     float intalphaMapped = ofMap(moveZach, 20, ofGetWidth()-400, 0, 255);
   
     ofSetColor(224,103,99,intalphaMapped);
@@ -97,7 +102,7 @@ void RuleOne::draw(){
     
     
     ofSetColor(brown);
-    RuleOneeverything.draw(50,50,1328,754);
+    RuleOneeverything.draw(50,25);
 
     if (ofGetMousePressed() && ofGetMouseX()>100 && ofGetMouseX()<ofGetWidth()-305){
         moveZach = ofGetMouseX();

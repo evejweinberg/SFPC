@@ -119,7 +119,7 @@ void RuleSeven::draw(){
     videofive.draw(40,340,330,200);
     videosix.draw(1000,110,330,200); //taeyoon Goldberg
     videoseven.draw(350,550,330,200); //not yet
-    videoeight.draw(1000,550,330,200); //not done
+    videoeight.draw(1000,550,330,200); //katie's arduino board
 
     
 

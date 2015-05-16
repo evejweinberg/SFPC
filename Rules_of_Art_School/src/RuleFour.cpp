@@ -49,6 +49,9 @@ void RuleFour::enable(){
 
 void RuleFour::disable(){
     enabled = false;
+    
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -148,7 +151,7 @@ void RuleFour::mousePressed(int x, int y, int button){
     for (int i = 0; i < allBallsDropping.size(); i++) {
         if(allBallsDropping[i].mousePressed(x, y, button)) {
             
-            BallDrop ball; //instantiating a new variable 'ba'' of the type 'balldrop'
+            BallDrop ball; //instantiating a new variable 'ball' of the type 'balldrop'
 
             ball.artwork = &LikeThis[nextArtwork];
             ball.col = colors[nextColor];
